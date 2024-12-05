@@ -1,0 +1,9 @@
+<p style="color: green"><%= notice %></p>
+
+<% if current_user && current_user.admin?%>
+  <%= link_to "New post", new_admin_post_path %>
+<% end%>
+
+<div id="posts">
+ <%= render collection: @posts, partial: "posts/post" %>
+</div>

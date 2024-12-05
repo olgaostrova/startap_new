@@ -1,0 +1,13 @@
+<div id="<%= dom_id chat %>">
+  <h2>
+    <%= link_to chat.name, admin_chat_path(chat) %>
+  </h2>
+
+
+  <p>
+    <strong>Создатель</strong>
+    <%= chat.user.email %>
+  </p>
+
+
+</div>

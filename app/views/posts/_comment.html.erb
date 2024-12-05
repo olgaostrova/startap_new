@@ -1,0 +1,26 @@
+<div id="<%= dom_id comment %>">
+
+  <h4>
+    <%= comment.user.email %>
+  </h4>
+    
+  <p>
+    <%= comment.text %>
+  </p>
+
+  <div class="feedback">
+    <div class="likes"> 
+    <p> Лайки </p> 
+    <%= comment.likes %>
+    </div>   
+    <div class="likes"> 
+    <p> Дизлайки </p> 
+    <%= comment.dislikes %>
+    </div>  
+    <div class="taps"> 
+    <p> Тапы </p> 
+    <%= comment.taps %>
+    </div>    
+  </div>
+
+</div>

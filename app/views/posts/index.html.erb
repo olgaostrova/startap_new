@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<% if current_user %>
+<%# if current_user && current_user.admin?%>
+<%# if can? :create, Post %>
+<%= link_to "New post", new_admin_post_path %>
+<% end%>
+
+<div>
+    <%= link_to "All posts", posts_path %>
+    <% Post.tag_counts_on(:tags).each do |tag| %>
+    <%= link_to tag.name, tagged_posts_path(tag.name) %>
+    <% end %>
+</div>
+
+<div>
+    <%= link_to "All posts", posts_path %>
+    <% Post.tag_counts_on(:categories).each do |tag| %>
+    <%= link_to tag.name, tagged_posts_path(tag.name) %>
+    <% end %>
+</div>
+
+<div id="posts">
+    <%= render collection: @posts, partial: "posts/post" %>
+</div>

@@ -1,0 +1,40 @@
+<div id="<%= dom_id post %>" class="post">
+    <h3 class="post_title">
+        <%= link_to post.title, post_path(post) %>
+    </h3>
+
+    <h5 class="author">
+        Автор
+        <%= post.user.email %>
+    </h5>
+    <p>
+      <% post.tags.each do |tag| %>
+      <%= link_to tag.name, tagged_posts_path(tag.name) %>
+      <% end %>
+    </p>
+
+    <p>
+      <% post.categories.each do |tag| %>
+      <%= link_to tag.name, tagged_posts_path(tag.name) %>
+      <% end %>
+    </p>
+    <p>
+        <%= post.text %>
+    </p>
+
+    <div class="feedback">
+        <div class="likes">
+            <p> Лайки </p>
+            <%= post.likes %>
+        </div>
+        <div class="likes">
+            <p> Дизлайки </p>
+            <%= post.dislikes %>
+        </div>
+        <div class="taps">
+            <p> Тапы </p>
+            <%= post.taps %>
+        </div>
+    </div>
+
+</div>

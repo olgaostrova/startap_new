@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Chats</h1>
+
+<% if current_user %>
+  <%= link_to "New chat", new_admin_chat_path %>
+<% end %>
+
+
+<div id="chats">
+  <% @chats.each do |chat| %>
+  <div class="chat_select">
+    <%= render chat %>
+    <p>
+      <%= link_to "Show this chat", admin_chat_path(chat) %>
+    </p>
+  </div>
+  <% end %>
+</div>
