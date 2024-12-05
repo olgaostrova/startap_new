@@ -8,10 +8,9 @@
 
 <div class="buttons_collection">
 
-<% if current_user && current_user.admin?%>
-
-     <%= link_to "Edit this post", edit_admin_post_path(@post) %>
-     <%= button_to "Destroy this post", admin_post_path(@post), method: :delete %>
+<% if can? :manage, @post %>
+     <%= link_to "Edit this post", edit_post_path(@post) %>
+     <%= button_to "Destroy this post", post_path(@post), method: :delete %>
 <% end %>
 
 </div>
@@ -21,6 +20,21 @@
 <h3>
 Комментарии
 </h3>
+
+<% if current_user %>
+
+  <%= form_for([@post, @post.comments.build]) do |form| %>
+    <div class="text_field">
+      <%# # form.label :text, style: "display: block"  %>
+      <%= form.text_area :text %>
+    </div>  
+
+    <button class="comment_button">
+      <p class="p2"><%= form.submit %></p>
+    </button>
+  <% end %>
+
+<% end %>
 
 <div class="comments_list">
   <% @post.comments.each do |comment| %>

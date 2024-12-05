@@ -116,7 +116,7 @@ def create_users(quantity)
     user = User.create!(user_data)
     puts "User created with id #{user.id}"
 
-    i += 1
+    i = i + 1
   end
 end
 
@@ -171,7 +171,7 @@ def create_comment(quantity)
 
     quantity.to_a.sample.times do
       user = User.all.sample
-      comment = post.comments.create!(text: "Текст комментария номер #{i}", author_name: user.email, user: user, text: create_sentence, likes: get_random_number, dislikes: get_random_number, taps: get_random_number)
+      comment = post.comments.create!(text: "Текст комментария номер #{i}", user: user, author_name: user.email,  text: create_sentence, likes: get_random_number, dislikes: get_random_number, taps: get_random_number)
       i += 1
       puts "Comment with text #{comment.text} just build for post #{comment.post.title} just created"
     end

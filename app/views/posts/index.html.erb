@@ -1,9 +1,9 @@
 <p class="p2" style="color: green"><%= notice %></p>
 
-<% if current_user %>
+<% if can? :create, Post %>
 <%# if current_user && current_user.admin?%>
 <%# if can? :create, Post %>
-<p class="p2"><%= link_to "New post", new_admin_post_path %></p>
+<p class="p2"><%= link_to "New post", new_post_path %></p>
 <% end%>
 
 <div class="tag_section">

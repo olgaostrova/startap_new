@@ -13,6 +13,7 @@ class Ability
     can :manage, Post, user: user
     can :manage, Startup, user: user
     can :manage, Chat, user: user
+    can :manage, Comment, user: user
     #   return unless user.present?
     #   can :read, :all
     return unless user.admin?

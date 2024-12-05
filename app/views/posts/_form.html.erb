@@ -1,3 +1,9 @@
+<% if current_user && current_user.admin?
+  post_model = [:admin, post]
+elsif can? :edit, post
+  post_model = post
+end %>
+
 <%= form_with(model: [:admin, post]) do |form| %>
 <%#= form_with(model: post) do |form| %>
 <% if post.errors.any? %>

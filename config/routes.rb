@@ -10,10 +10,11 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :posts, only: [:index, :show] do
+  resources :posts, only: [:index, :show, :edit, :new, :destroy] do
     collection do
       get "my"
     end
+    resources :comments, only: [:create]
 
     get "/by_tag/:tag", to: "posts#by_tag", on: :collection, as: "tagged"
   end
@@ -33,8 +34,8 @@ Rails.application.routes.draw do
     resources :chats
     resources :subscriptions
 
-    resources :startups, except: [:show] 
-    resources :posts, except: [:show] 
+    resources :startups, except: [:index, :show] 
+    resources :posts, except: [:index, :show] 
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

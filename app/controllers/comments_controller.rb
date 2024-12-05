@@ -1,6 +1,6 @@
-class Admin::CommentsController < ApplicationController
+class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
+  load_and_authorize_resource
   
 
   # GET /comments or /comments.json
@@ -26,6 +26,9 @@ class Admin::CommentsController < ApplicationController
     @comment = @post.comments.create(comment_params)
     redirect_to post_path(@post)
   end
+  
+
+  #params[:comment].permit(:text)
 
   # POST /comments or /comments.json
 

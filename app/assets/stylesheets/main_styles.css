@@ -236,5 +236,21 @@ body.posts_body {
         }
     }
 
+    .text_field {
+        * {
+            width: 60%;
+            height: 100px;
+            border: solid gray 1px;
+            border-radius: 8px;
+            padding: 8px;
+        }
+    }
+
+    .comment_button {
+        background-color: #FF5134;
+        color: #FFFFFF;
+        border-radius: 8px;
+        padding-bottom: 4px;
+    }
 
 }
