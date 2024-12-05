@@ -1,40 +1,26 @@
 <div id="<%= dom_id post %>" class="post">
-    <h3 class="post_title">
+    <div class="W_postHeader">
+        <div class="M_stract">
+            <div class="avatar"></div>
+            <div class="M_startapDesk">
+               <p class="p4"><%= post.user.email %></p>
+               <p class="p5 caption">автор поста</p>
+            </div>
+        </div>
+        <button class="A_buttonUp"><p class="p1"><%= post.taps %></p></button>
+    </div>
+    <h4 class="post_title">
         <%= link_to post.title, post_path(post) %>
     </h3>
-
-    <h5 class="author">
-        Автор
-        <%= post.user.email %>
-    </h5>
-    <p>
+    <p class="p5"><%= post.text %></p>
+    <p class="p5 tags">
       <% post.tags.each do |tag| %>
       <%= link_to tag.name, tagged_posts_path(tag.name) %>
       <% end %>
     </p>
 
-    <p>
-      <% post.categories.each do |tag| %>
-      <%= link_to tag.name, tagged_posts_path(tag.name) %>
-      <% end %>
-    </p>
-    <p>
-        <%= post.text %>
-    </p>
-
-    <div class="feedback">
-        <div class="likes">
-            <p> Лайки </p>
-            <%= post.likes %>
-        </div>
-        <div class="likes">
-            <p> Дизлайки </p>
-            <%= post.dislikes %>
-        </div>
-        <div class="taps">
-            <p> Тапы </p>
-            <%= post.taps %>
-        </div>
+    <div class="W_interactive">
+        <div class="comments"><p class="p1"><%= post.comments.size %></p></div>
+        <p class="p6 time"><%= post.created_at %></p>
     </div>
-
 </div>

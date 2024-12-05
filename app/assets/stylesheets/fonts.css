@@ -7,3 +7,27 @@
   font-family: 'Stolzl';
   src: url('stolzl_regular.otf');
 }
+
+@font-face {
+  font-family: 'Neutral Face';
+  src: url('Neutral Face/NeutralFace.otf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Neutral Face';
+  src: url('Neutral Face/NeutralFace-Bold.otf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'OffBit';
+  src: url('Neutral Face/OffBit-Regular.ttf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'OffBit';
+  src: url('Neutral Face/OffBit-Bold.ttf');
+  font-weight: bold;
+}

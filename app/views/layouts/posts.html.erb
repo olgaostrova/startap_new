@@ -10,13 +10,16 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="posts_body">
     <%= render "menubar" %>
 
-    <h1>Посты</h1>
+    <div class="main_img"></div>
 
-    <%= render "posts/menu" %>
-    <%= yield %>
+    <div class="posts_section">
+     <%= yield %>
+    <div class="posts_section">
+
     <%= render "footer" %>
+
   </body>
 </html>

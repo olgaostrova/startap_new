@@ -339,15 +339,22 @@ svg {
 }
 
 body::-webkit-scrollbar {
-  width: 12px; /* ширина scrollbar */
+  width: 12px;
+  /* ширина scrollbar */
 }
+
 body::-webkit-scrollbar-track {
-  background: var(--very-light-blue); /* цвет дорожки */
+  background: white;
+  /* цвет дорожки */
 }
+
 body::-webkit-scrollbar-thumb {
-  background-color: var(--bright-blue); /* цвет плашки */
-  border-radius: 20px; /* закругления плашки */
-  border: 3px solid var(--very-light-blue); /* padding вокруг плашки */
+  background-color: #FF5134;
+  /* цвет плашки */
+  border-radius: 20px;
+  /* закругления плашки */
+  border: 3px solid white;
+  /* padding вокруг плашки */
 }
 
 /*стили для основного сервиса*/
@@ -370,12 +377,22 @@ input {
   > * {
     display: flex;
     flex-direction: row;
-    gap: 0.5rem;
+    gap: 1rem;
   }
 
   a {
-    color: var(--bright-blue);
+    color: black;
+
+    &:hover {
+      color: #FF5134;
+    }
   }
+
+  @media screen and (max-width: 824px) {
+    display: none;
+  }
+
+  
 }
 
 #user_remember_me {
@@ -431,25 +448,6 @@ input {
   margin: 0 auto;
 }
 
-.post {
-  display: flex;
-  flex-direction: column;
-  max-width: 36rem;
-  gap: 1rem;
-  background-color: white;
-  padding: 1rem;
-  border-radius: 1rem;
-
-  .post_title {
-    cursor: pointer;
-
-    &:hover {
-      a {
-        color: var(--bright-blue);
-      }
-    }
-  }
-}
 
 .feedback {
   display: flex;
