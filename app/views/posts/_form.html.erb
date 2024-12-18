@@ -51,7 +51,7 @@ end %>
     <%= form.text_area :category_list %>
 </div>
 
-<%= form.collection_select :startup_id, current_user.startups.order(:name), :id, :name, include_blank: false %>
+<%= form.collection_select :startup_id, current_user.startups.order(:name), :id, :name, include_blank: true %>
 
 
 <div>

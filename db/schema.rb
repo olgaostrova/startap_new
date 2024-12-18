@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_12_05_160329) do
+ActiveRecord::Schema[7.0].define(version: 2024_12_18_180249) do
   create_table "chats", force: :cascade do |t|
     t.string "name"
     t.integer "user_id", null: false
@@ -24,7 +24,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_05_160329) do
     t.integer "likes"
     t.integer "dislikes"
     t.integer "taps"
-    t.string "author_name"
     t.integer "post_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
@@ -47,18 +46,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_05_160329) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "text"
-    t.string "description"
     t.integer "likes"
     t.integer "dislikes"
     t.integer "taps"
-    t.integer "author_name"
     t.integer "user_id", null: false
-    t.integer "startup_id", null: false
+    t.integer "startup_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "tags"
     t.boolean "public", default: false
     t.string "secret"
+    t.string "cover"
     t.index ["startup_id"], name: "index_posts_on_startup_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -66,12 +64,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_05_160329) do
   create_table "startups", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "tags"
     t.boolean "public", default: true
-    t.index ["user_id"], name: "index_startups_on_user_id"
+    t.string "avatar"
+    t.string "banner"
+  end
+
+  create_table "startups_users", id: false, force: :cascade do |t|
+    t.integer "startup_id", null: false
+    t.integer "user_id", null: false
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -127,6 +130,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_05_160329) do
     t.datetime "updated_at", null: false
     t.string "tags"
     t.boolean "admin", default: false
+    t.string "name"
+    t.string "surname"
+    t.string "secrtiption"
+    t.date "birthday"
+    t.string "avatar"
+    t.integer "trust_points"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -138,6 +147,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_05_160329) do
   add_foreign_key "messages", "users"
   add_foreign_key "posts", "startups"
   add_foreign_key "posts", "users"
-  add_foreign_key "startups", "users"
   add_foreign_key "taggings", "tags"
 end

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy ]
   load_and_authorize_resource
+  before_action :set_post, only: %i[ show edit update destroy ]
 
   def index
     if current_user && current_user.admin?

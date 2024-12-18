@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
     get "/by_tag/:tag", to: "posts#by_tag", on: :collection, as: "tagged"
   end
-  resources :startups, only: [:index, :show] do
+  resources :startups, only: [:index, :show, :edit, :new, :destroy] do
     collection do
       get "my"
     end

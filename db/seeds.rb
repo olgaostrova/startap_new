@@ -69,9 +69,9 @@
 def seed
   reset_db
   create_users(10)
+  create_startup(1...3)
   create_chat(2...5)
   create_message(10...20)
-  create_startup(1...3)
   create_post(2...8)
   create_comment(2...8)
 end
@@ -123,7 +123,7 @@ end
 def create_post(quantity)
   Startup.all.each do |startup|
     quantity.to_a.sample.times do
-      post = startup.posts.create!(title: @titles.sample, startup: startup, user: startup.user, text: create_sentence, likes: get_random_number, dislikes: get_random_number, taps: get_random_number, public: get_random_bool)
+      post = startup.posts.create!(title: @titles.sample, startup: startup, user: startup.users.sample, text: create_sentence, likes: get_random_number, dislikes: get_random_number, taps: get_random_number, public: get_random_bool)
       puts "Post with title #{post.title} and tags #{post.tags} just created"
     end
   end
@@ -132,8 +132,8 @@ end
 def create_startup(quantity)
   User.all.each do |user|
     quantity.to_a.sample.times do
-      startup = user.startups.create!(name:  @startups.sample, user: user, description: create_sentence, public: get_random_bool)
-      puts "Startup with title #{startup.name} and tags #{startup.tags} just created"
+      startup = user.startups.create!(name: @startups.sample, description: create_sentence, public: get_random_bool)
+      puts "Startup with title #{startup.name} and tags #{startup.tags} just created by user #{user.email}"
     end
   end
 end

@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
+  has_and_belongs_to_many :startups
   has_many :chats
   has_many :posts
-  has_many :startups
   has_many :messages
   has_many :comments
   has_many :tags

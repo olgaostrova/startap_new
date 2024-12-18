@@ -5,7 +5,14 @@
 
   <h4 class="author">
     Автор
-    <%= startup.user.email %>
+    <% startup.users.each do |user| %>
+      <%= user.email %><br>
+    <% end %>
+
+    <% if startup.users.empty? %>
+      Пользователей, связанных с этим стартапом, нет.
+    <% end %>
+
   </h4>
     
   <p class="tags">

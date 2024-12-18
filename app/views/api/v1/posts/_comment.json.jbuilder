@@ -1,1 +1,1 @@
-json.extract! comment, :id, :text
+json.extract! comment, :id, :text, :likes, :dislikes, :taps, :created_at, :updated_at

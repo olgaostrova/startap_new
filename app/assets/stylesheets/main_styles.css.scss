@@ -33,36 +33,39 @@ body.posts_body {
         font-size: 24px;
     }
 
-    p.p1 {
+    p {
+
+        &.p1 {
         font-family: "Neutral Face", sans-serif;
         font-size: 16px;
         font-weight: bold;
-    }
+        }
 
-    p.p2 {
-        font-family: "Neutral Face", sans-serif;
-        font-size: 16px;
-    }
+        &.p2 {
+            font-family: "Neutral Face", sans-serif;
+            font-size: 16px;
+        }
 
-    p.p3 {
-        font-family: "Neutral Face", sans-serif;
-        font-size: 12px;
-    }
+        &.p3 {
+            font-family: "Neutral Face", sans-serif;
+            font-size: 12px;
+        }
 
-    p.p4 {
-        font-family: "Inter", sans-serif;
-        font-size: 16px;
-        font-weight: medium;
-    }
+        &.p4 {
+            font-family: "Inter", sans-serif;
+            font-size: 16px;
+            font-weight: medium;
+        }
 
-    p.p5 {
-        font-family: "Inter", sans-serif;
-        font-size: 16px;
-    }
+        &.p5 {
+            font-family: "Inter", sans-serif;
+            font-size: 16px;
+        }
 
-    p.p6 {
-        font-family: "Inter", sans-serif;
-        font-size: 12px;
+        &.p6 {
+            font-family: "Inter", sans-serif;
+            font-size: 12px;
+        }
     }
 
     .caption {
