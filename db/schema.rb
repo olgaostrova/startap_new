@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_12_18_180249) do
-  create_table "chats", force: :cascade do |t|
-    t.string "name"
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_chats_on_user_id"
-  end
-
+ActiveRecord::Schema[7.0].define(version: 2024_12_19_164125) do
   create_table "comments", force: :cascade do |t|
     t.string "text"
     t.integer "likes"
@@ -32,23 +24,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_18_180249) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.string "text"
-    t.string "author_name"
-    t.integer "chat_id", null: false
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["chat_id"], name: "index_messages_on_chat_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "text"
     t.integer "likes"
     t.integer "dislikes"
-    t.integer "taps"
     t.integer "user_id", null: false
     t.integer "startup_id"
     t.datetime "created_at", null: false
@@ -61,15 +41,30 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_18_180249) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "avatar"
+    t.integer "trust_points"
+    t.string "name"
+    t.string "surname"
+    t.date "birthday"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "description"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
   create_table "startups", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "tags"
     t.boolean "public", default: true
     t.string "avatar"
     t.string "banner"
+    t.index ["user_id"], name: "index_startups_on_user_id"
   end
 
   create_table "startups_users", id: false, force: :cascade do |t|
@@ -128,24 +123,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_18_180249) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "tags"
     t.boolean "admin", default: false
-    t.string "name"
-    t.string "surname"
-    t.string "secrtiption"
-    t.date "birthday"
-    t.string "avatar"
-    t.integer "trust_points"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "chats", "users"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
-  add_foreign_key "messages", "chats"
-  add_foreign_key "messages", "users"
   add_foreign_key "posts", "startups"
   add_foreign_key "posts", "users"
+  add_foreign_key "profiles", "users"
+  add_foreign_key "startups", "users"
   add_foreign_key "taggings", "tags"
 end

@@ -1,13 +1,13 @@
 class StartupsController < ApplicationController
+  before_action :set_startup, only: %i[ show edit update destroy ]
   load_and_authorize_resource
-  before_action :set_startup, only: %i[ edit update destroy ]
 
   # GET /startups or /startups.json
  
-  # GET /startups/new
- # def new
- #   @startup = Startup.new
- # end
+  #GET /startups/new
+  def new
+    @startup = Startup.new
+  end
 
   def index
     if current_user && current_user.admin?
@@ -39,8 +39,8 @@ class StartupsController < ApplicationController
   end
 
   # POST /startups or /startups.json
-  def create
-    @startup = Startup.new(startup_params)
+  def create    
+    @startup = current_user.startups.new(startup_params)
 
     respond_to do |format|
       if @startup.save
@@ -84,7 +84,7 @@ class StartupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def startup_params
-      params.require(:startup).permit(:name, :description, :user_id)
+      params.require(:startup).permit(:name, :description, :user_id, tag_list: [])
     end
 
     #  def index

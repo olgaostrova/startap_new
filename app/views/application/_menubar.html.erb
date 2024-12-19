@@ -7,7 +7,6 @@
     <%# else %>
     <p class="p2"><%= link_to "Форум", index_url %></p>
     <p class="p2"><%= link_to "Песочница", startups_url %></p>
-    <p class="p2"><%= link_to "Мессенджер", admin_chats_url %></p>
     <% if user_signed_in? && current_user.admin?%>
       <p class="p2"><%= link_to "Подписки", admin_subscriptions_url %></p>
     <% end %>

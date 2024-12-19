@@ -1,13 +1,12 @@
 <div id="<%= dom_id post %>" class="post">
     <div class="W_postHeader">
         <div class="M_stract">
-            <div class="avatar"></div>
+            <%= image_tag post.user.profile.avatar.url, class: 'avatar'  %>
             <div class="M_startapDesk">
                <p class="p4"><%= post.user.email %></p>
                <p class="p5 caption">автор поста</p>
             </div>
         </div>
-        <button class="A_buttonUp"><p class="p1"><%= post.taps %></p></button>
     </div>
     <h4 class="post_title">
         <%= link_to post.title, post_path(post) %>
@@ -18,9 +17,19 @@
       <%= link_to tag.name, tagged_posts_path(tag.name) %>
       <% end %>
     </p>
+      <% post.categories.each do |category| %> 
+            <%= link_to category.name, tagged_posts_path(category.name), class: "p5 tags" %> 
+      <% end %> 
+    
+    <%= image_tag post.cover.url, class: 'post_cover'  %>
+
 
     <div class="W_interactive">
         <div class="comments"><p class="p1"><%= post.comments.size %></p></div>
         <p class="p6 time"><%= post.created_at %></p>
+        <p class="p6 time">
+            <%= post.created_at.strftime('%e %B %Y %H:%M') %>
+            </p>
+        
     </div>
 </div>

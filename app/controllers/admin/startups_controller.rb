@@ -59,6 +59,6 @@ class Admin::StartupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def startup_params
-      params.require(:startup).permit(:name, :description, :user_id)
+      params.require(:startup).permit(:name, :tag_list, :description, :user_id)
     end
 end

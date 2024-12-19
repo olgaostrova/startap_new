@@ -12,8 +12,9 @@ class Ability
     return unless user.present?  # additional permissions for logged in users (they can read their own posts)
     can :manage, Post, user: user
     can :manage, Startup, user: user
-    can :manage, Chat, user: user
-    can :manage, Comment, user: user
+    can :my, Post
+    #can :manage, Chat, user: user
+    #can :manage, Comment, user: user
     #   return unless user.present?
     #   can :read, :all
     return unless user.admin?

@@ -466,13 +466,6 @@ input {
   }
 }
 
-.tags {
-  background-color: var(--light-blue);
-  color: var(--bright-blue);
-  width: fit-content;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-}
 
 a {
   color: var(--bright-blue);

@@ -11,7 +11,7 @@ class Api::V1::StartupsController < ApplicationController
   end
 
   def show
-    @startups = Startup.find(params[:id])
+    @startup = Startup.find(params[:id])
   end
 
 end

@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  avatar: MyString
+  trust_points: 1
+  name: MyString
+  surname: MyString
+  descrtiption: MyString
+  birthday: 2024-12-19
+
+two:
+  user: two
+  avatar: MyString
+  trust_points: 1
+  name: MyString
+  surname: MyString
+  descrtiption: MyString
+  birthday: 2024-12-19

@@ -5,18 +5,14 @@
 
   <h4 class="author">
     Автор
-    <% startup.users.each do |user| %>
-      <%= user.email %><br>
-    <% end %>
-
-    <% if startup.users.empty? %>
-      Пользователей, связанных с этим стартапом, нет.
-    <% end %>
+      <%= startup.user.email %><br>
 
   </h4>
     
-  <p class="tags">
-    <%= startup.tags %>
+  <p class="p5 tags">
+    <% startup.tags.each do |tag| %>
+      <%= link_to tag.name, tagged_startups_path(tag.name) %>
+    <% end %>
   </p>
 
   <p class="description">

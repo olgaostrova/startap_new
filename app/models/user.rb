@@ -3,11 +3,19 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
-  has_and_belongs_to_many :startups
-  has_many :chats
+  has_one :profile, dependent: :destroy
+  has_many :startups
   has_many :posts
-  has_many :messages
   has_many :comments
   has_many :tags
+
+  after_create :create_user_profile
+
+  private
+
+    def create_user_profile
+      self.create_profile! unless self.profile.present?
+    end
+
+
 end

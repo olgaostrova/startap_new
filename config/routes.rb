@@ -1,28 +1,36 @@
 Rails.application.routes.draw do
-
   namespace :api, format: 'json' do
     namespace :v1 do
       resources :posts, only: [:index, :show]
       resources :startups, only: [:index, :show]
+
       get 'welcome/index'
+      get 'profile', to: "profile#show"
     end
   end
 
   devise_for :users
 
-  resources :posts, only: [:index, :show, :edit, :new, :destroy] do
+  resources :profiles
+
+  resources :posts, only: [:index, :show, :edit, :new, :destroy, :create] do
     collection do
       get "my"
     end
+
     resources :comments, only: [:create]
 
     get "/by_tag/:tag", to: "posts#by_tag", on: :collection, as: "tagged"
   end
-  resources :startups, only: [:index, :show, :edit, :new, :destroy] do
+  resources :startups, only: [:index, :show, :edit, :new, :destroy, :create] do
     collection do
       get "my"
     end
+
+    get "/by_tag/:tag", to: "startups#by_tag", on: :collection, as: "tagged"
   end
+
+
   resources :subscriptions, only: [:create]
 
 

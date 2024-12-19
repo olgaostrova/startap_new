@@ -4,7 +4,7 @@ elsif can? :edit, post
   post_model = post
 end %>
 
-<%= form_with(model: [:admin, post]) do |form| %>
+<%= form_with(model: post) do |form| %>
 <%#= form_with(model: post) do |form| %>
 <% if post.errors.any? %>
 <div style="color: red">
@@ -32,24 +32,13 @@ end %>
 </div>
 
 <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+  <%= form.label :cover, style: "display: block" %>
+  <%= form.file_field :cover %>
 </div>
 
-<div>
-    <%= form.label :likes, style: "display: block" %>
-    <%= form.number_field :likes %>
-</div>
+<%= form.select :tag_list, valid_tags, {}, multiple: true %>
 
-<div>
-    <label for="">Tags</label>
-    <%= form.text_area :tag_list %>
-</div>
-
-<div>
-    <label for="">Categories</label>
-    <%= form.text_area :category_list %>
-</div>
+<%= form.select :category_list, valid_categories %>
 
 <%= form.collection_select :startup_id, current_user.startups.order(:name), :id, :name, include_blank: true %>
 

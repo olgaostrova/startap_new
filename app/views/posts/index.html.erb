@@ -6,10 +6,19 @@
 <p class="p2"><%= link_to "New post", new_post_path %></p>
 <% end%>
 
+<%= link_to "Мои посты", my_posts_path %>
+
 <div class="tag_section">
     <p class="p2"><%= link_to "All posts", posts_path %></p>
     <% Post.tag_counts_on(:tags).each do |tag| %>
     <p class="p2"><%= link_to tag.name, tagged_posts_path(tag.name) %></p>
+    <% end %>
+</div>
+
+<div class="tag_section">
+    <p class="p2"><%= link_to "All posts", posts_path %></p>
+    <% Post.tag_counts_on(:categories).each do |category| %>
+    <p class="p2"><%= link_to category.name, tagged_posts_path(category.name) %></p>
     <% end %>
 </div>
 

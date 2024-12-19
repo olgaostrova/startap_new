@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[ show edit update destroy ]
+  before_action :set_comment, only: %i[ edit update destroy ]
   load_and_authorize_resource
   
 
@@ -9,8 +9,6 @@ class CommentsController < ApplicationController
   end
 
   # GET /comments/1 or /comments/1.json
-  def show
-  end
 
   # GET /comments/new
   def new
@@ -23,8 +21,18 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.create(comment_params)
-    redirect_to post_path(@post)
+    @comment = current_user.comments.new(comment_params)
+    @comment.post_id = @post.id
+
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to post_url(@post), notice: "Comment was successfully created." }
+        #format.json { render :show, status: :created, location: @comment }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
+    end
   end
   
 

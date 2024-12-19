@@ -72,10 +72,18 @@ body.posts_body {
         color: gray;
     }
 
+    .post_cover {
+        height: 360px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+        object-position: top;
+    }
+
     .post {
         background-color: #F3F3F3;
         color: #242424;
-        max-width: 720px;
+        max-width: 640px;
         display: flex;
         padding: 14px;
         flex-direction: column;
@@ -98,6 +106,7 @@ body.posts_body {
             width: 60px;
             height: 60px;
             border-radius: 8px;
+            object-fit: cover;
         }
 
         cursor: pointer;
@@ -171,9 +180,19 @@ body.posts_body {
         }
 
         .tags {
+
+            gap: 1rem;
+            display: flex;
+
+            * {
             background-color: #B0EDBF;
-            a {
-                color: #104424;
+            color: #104424;
+            padding: 4px 16px;
+            border-radius: 4px;
+
+                &:first-letter {
+                    text-transform: uppercase;
+                }
             }
         }
     }
