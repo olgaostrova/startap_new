@@ -1,0 +1,40 @@
+<div class="<%= 'reply' if comment.comment_id != nil %>" id="<%= dom_id comment %>">
+    
+  <p>
+    <%= comment.text %>
+  </p>
+
+  <div class="feedback">
+    <div class="likes"> 
+    <p> Лайки </p> 
+    <%= comment.likes.count %>
+    </div>   
+    <div class="likes"> 
+    <p> Дизлайки </p> 
+    <%= comment.dislikes %>
+    </div>  
+    <div class="taps"> 
+    <p> Тапы </p> 
+    <%= comment.taps %>
+    </div>    
+  </div>
+
+  <%= comment.user.email %>
+
+  Id: <%= comment.id %>, Nested level: <%= nested_level(comment) %>
+
+  <%= render partial: "like/button", locals: { likeable: comment } %>
+
+
+  <%= render partial: "comments/form",
+                        locals: {
+                          comment: Comment.new,
+                          parent_comment_id: comment.id } %>
+
+  <% if comment.replies.any? %>
+    <%= render comment.replies, partial: "comments/comment", as: :comment %>
+  <% end %>
+
+
+
+</div>

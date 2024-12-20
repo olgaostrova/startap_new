@@ -34,6 +34,8 @@ gem "rack-cors"
 
 gem 'acts-as-taggable-on'
 
+gem 'htmlbeautifier'
+
 
 #чисто для ворнинга сделано
 

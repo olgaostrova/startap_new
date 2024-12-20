@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'like/toggle'
+
   namespace :api, format: 'json' do
     namespace :v1 do
       resources :posts, only: [:index, :show]
@@ -11,17 +13,22 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :profiles
+
+  resources :profile, only: [:show, :edit, :destroy] 
+
+  get 'profile', to: "profile#show"
 
   resources :posts, only: [:index, :show, :edit, :new, :destroy, :create] do
     collection do
       get "my"
     end
 
-    resources :comments, only: [:create]
+    resources :comments
+    #, only: [:create]
 
     get "/by_tag/:tag", to: "posts#by_tag", on: :collection, as: "tagged"
   end
+
   resources :startups, only: [:index, :show, :edit, :new, :destroy, :create] do
     collection do
       get "my"

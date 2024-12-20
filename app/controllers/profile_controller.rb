@@ -1,26 +1,24 @@
-class ProfilesController < ApplicationController
-  before_action :set_profile, only: %i[ show edit update destroy ]
+class ProfileController < ApplicationController
+  before_action :set_profile, only: %i[ edit update destroy ]
   load_and_authorize_resource
 
-  # GET /profiles or /profiles.json
-  def index
-    @profiles = Profile.all
-  end
+  # GET /profile or /profile.json
 
-  # GET /profiles/1 or /profiles/1.json
+  # GET /profile/1 or /profile/1.json
   def show
+    @profile = Profile.first
   end
 
-  # GET /profiles/new
+  # GET /profile/new
   def new
     @profile = Profile.new
   end
 
-  # GET /profiles/1/edit
+  # GET /profile/1/edit
   def edit
   end
 
-  # POST /profiles or /profiles.json
+  # POST /profile or /profile.json
   def create
     @profile = Profile.new(profile_params)
 
@@ -35,7 +33,7 @@ class ProfilesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /profiles/1 or /profiles/1.json
+  # PATCH/PUT /profile/1 or /profile/1.json
   def update
     respond_to do |format|
       if @profile.update(profile_params)
@@ -48,12 +46,12 @@ class ProfilesController < ApplicationController
     end
   end
 
-  # DELETE /profiles/1 or /profiles/1.json
+  # DELETE /profile/1 or /profile/1.json
   def destroy
     @profile.destroy
 
     respond_to do |format|
-      format.html { redirect_to profiles_path, status: :see_other, notice: "Profile was successfully destroyed." }
+      format.html { redirect_to profile_path, status: :see_other, notice: "Profile was successfully destroyed." }
       format.json { head :no_content }
     end
   end

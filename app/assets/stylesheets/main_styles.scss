@@ -1,3 +1,31 @@
+.reply {
+    margin-left: 100px;
+}
+.images {
+    display: flex;
+
+
+    * {
+        width: 24px;
+        height: 24px;
+        margin: 0 10px;
+    }
+    
+    .image {
+        &#bgPNG {
+            background-image: url('../../images/image.png');
+        }
+    
+        &#bgJPG {
+            background-image: url('../../images/image.jpg');
+        }
+    
+        &#bgSVG {
+            background-image: url('../../images/image.svg');
+        }
+    }
+}
+
 body.posts_body {
     background-color: #F9F9F9;
     overflow-x: hidden;

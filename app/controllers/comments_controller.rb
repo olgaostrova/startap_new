@@ -23,6 +23,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = current_user.comments.new(comment_params)
     @comment.post_id = @post.id
+    
 
     respond_to do |format|
       if @comment.save
@@ -71,6 +72,6 @@ class CommentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comment_params
-      params.require(:comment).permit(:text, :likes, :dislikes, :taps, :author_name, :post_id, :user_id)
+      params.require(:comment).permit(:text, :likes, :dislikes, :taps, :author_name, :post_id, :user_id, :comment_id).merge(post_id: params[:post_id])
     end
 end

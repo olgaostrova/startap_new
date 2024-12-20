@@ -8,14 +8,16 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
   has_many :tags
+  has_many :likes
 
-  after_create :create_user_profile
+  after_create :create_profile
+  #after_create :create_user_profile
 
-  private
-
-    def create_user_profile
-      self.create_profile! unless self.profile.present?
-    end
+  #private
+#
+  #def create_user_profile
+  #  self.create_profile! unless self.profile.present?
+  #end
 
 
 end

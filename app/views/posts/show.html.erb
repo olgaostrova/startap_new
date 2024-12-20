@@ -21,28 +21,20 @@
 Комментарии
 </h3>
 
+
+
 <% if current_user %>
 
-  <%= form_for([@post, @post.comments.build]) do |form| %>
-    <div class="text_field">
-      <%# # form.label :text, style: "display: block"  %>
-      <%= form.text_area :text %>
-    </div>  
-
-    <button class="comment_button">
-      <p class="p2"><%= form.submit %></p>
-    </button>
-  <% end %>
+<%= render "comments/form", post: @post, comment: Comment.new %>
 
 <% end %>
 
 <div class="comments_list">
-  <% @post.comments.each do |comment| %>
-    <div>
-      <%= render "posts/comment", comment: comment %>
-    </div>
-  <% end %>
-</div>
+<% @post.comments.no_replies.each do |comment| %>
+
+<%= render "comments/comment", post: @post, comment: comment %>
+
+<% end %>
 
 <%= link_to "Back to posts", index_url %>
   
