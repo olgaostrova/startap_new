@@ -229,7 +229,7 @@ def create_post(quantity)
         title: @titles.sample, 
         startup: startup, 
         text: create_sentence, 
-        likes: get_random_number, 
+        #likes: 0, 
         dislikes: get_random_number, 
         public: get_random_bool,
         cover: upload_random_image_post_cover
@@ -254,7 +254,7 @@ def create_post(quantity)
       post = user.posts.create!(
         title: @titles.sample, 
         text: create_sentence, 
-        likes: get_random_number, 
+        #likes: 0, 
         dislikes: get_random_number, 
         public: get_random_bool,
         cover: upload_random_image_post_cover
@@ -308,7 +308,7 @@ def create_comment(quantity)
       comment = post.comments.create!(
         user_id: User.all.sample.id, 
         text: create_sentence, 
-        likes: get_random_number, 
+        #likes: get_random_array_of_numbers, 
         dislikes: get_random_number, 
         taps: get_random_number
       )
@@ -325,7 +325,7 @@ def create_comment_replies
         post_id: comment.post_id, 
         user_id: User.all.sample.id, 
         text: create_sentence, 
-        likes: get_random_number, 
+        #likes: get_random_array_of_numbers, 
         dislikes: get_random_number, 
         taps: get_random_number
       )
