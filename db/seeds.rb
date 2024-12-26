@@ -1850,11 +1850,11 @@
 
 def seed
   reset_db
-  create_users(5)
-  create_startup(10)
-  create_post(50)
-  create_comment(2...4)
-  1...3.times do
+  create_users(20)
+  create_startup(60)
+  create_post(150)
+  create_comment(2...8)
+  1...5.times do
     create_comment_replies()
   end
 end
