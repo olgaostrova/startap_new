@@ -2,6 +2,12 @@ require_relative "boot"
 
 require "rails/all"
 
+#require 'r18n-desktop'
+#
+#R18n.from_env Rails.root.join('config', 'locales')
+#R18n.set('ru')  # Set default locale
+
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -20,3 +26,10 @@ module StarTap
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
+
+#module CentusRailsLocalization
+# class Application < Rails::Application
+#   config.i18n.available_locales = [:ru, :en]
+#   config.i18n.default_locale = :ru
+# end
+#end

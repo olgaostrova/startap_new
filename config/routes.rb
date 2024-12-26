@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'like/toggle'
+  get 'dislike/toggle'
+  get 'tap/toggle'
 
   namespace :api, format: 'json' do
     namespace :v1 do
@@ -14,11 +16,11 @@ Rails.application.routes.draw do
   devise_for :users
 
 
-  resources :profile, only: [:show, :edit, :destroy] 
+  resources :profile, only: [:show, :edit, :update, :destroy] 
 
   get 'profile', to: "profile#show"
 
-  resources :posts, only: [:index, :show, :edit, :new, :destroy, :create] do
+  resources :posts, only: [:index, :show, :edit, :new, :destroy, :create, :by_tag] do
     collection do
       get "my"
     end
@@ -62,5 +64,5 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
   get 'welcome/about'
-  root "welcome#index"
+  root "posts#index"
 end

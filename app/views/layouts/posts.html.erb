@@ -12,13 +12,11 @@
 
   <body class="posts_body">
     <%= render "menubar" %>
+     <p style="color: red"><%= alert %></p>
 
-    <div class="main_img"></div>
 
-    <div class="posts_section">
-     <%= yield %>
-    <div class="posts_section">
-
+    <%= yield %>
+    
     <%= render "footer" %>
 
   </body>

@@ -1,0 +1,119 @@
+.post_show {
+    display: flex;
+    width: 630px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    align-self: stretch;
+}
+
+.S_MenuBar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+
+    >* {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    a {
+        color: black;
+
+        &:hover {
+            color: #ff5134;
+        }
+    }
+
+    @media screen and (max-width: 824px) {
+        display: none;
+    }
+    border-bottom: 1px solid var(--black, #02020F);
+    background: var(--png-back);
+    background-size: cover;
+}
+
+.S_footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 2rem 1rem;
+
+    p {
+        color: var(--grey);
+    }
+}
+
+.S_postsSection {
+    margin: 24px 0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    max-width: 630px;
+    flex-direction: column;
+    background-color: var(--white);
+}
+
+.S_startupsSection {
+    margin: 24px 0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.S_postComments {
+    padding: 16px;
+    display: flex;
+    gap: 32px;
+    flex-direction: column;
+}
+
+.S_posts {
+    display: flex;
+    gap: 32px;
+}
+
+.S_postsPage {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.S_startupsPage {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.S_startups {
+    display: flex;
+    gap: 32px;
+}
+
+.S_createPost {
+    display: flex;
+    padding: 60px 405px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 56px;
+    align-self: stretch;
+}
+
+.S_footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 10rem 1rem 2rem 1rem;
+
+    p {
+        color: var(--grey);
+    }
+}

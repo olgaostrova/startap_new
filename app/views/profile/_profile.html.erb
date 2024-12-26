@@ -2,12 +2,14 @@
   <p>
     <strong>User:</strong>
     <%= profile.user_id %>
+    <%= profile.user.email %>
   </p>
-
-  <p>
-    <strong>Avatar:</strong>
-    <%= profile.avatar %>
-  </p>
+  <% if profile.avatar%> 
+    <p>
+      <strong>Avatar:</strong>
+      <%= profile.avatar %>
+    </p>
+  <% end %>
 
   <p>
     <strong>Trust points:</strong>

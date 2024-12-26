@@ -1,38 +1,45 @@
 <% title "Форум" %>
 
-<p class="p2" style="color: green"><%= notice %></p>
 
-<% if can? :create, Post %>
-<%# if current_user && current_user.admin?%>
-<%# if can? :create, Post %>
-<p class="p2"><%= link_to "New post", new_post_path %></p>
-<% end%>
 
-<%= link_to "Мои посты", my_posts_path %>
+<div class="S_postsPage">
+    <p class="p2" style="color: green"><%= notice %></p>
 
-<div class="tag_section">
-    <p class="p2"><%= link_to "All posts", posts_path %></p>
-    <% Post.tag_counts_on(:tags).each do |tag| %>
-    <p class="p2"><%= link_to tag.name, tagged_posts_path(tag.name) %></p>
+    <% if can? :create, Post %>
+    <%# if current_user && current_user.admin?%>
+    <%# if can? :create, Post %>
+    <button class="A_addButton"><%= link_to "New post", new_post_path %></button>
     <% end %>
-</div>
 
-<div class="tag_section">
-    <p class="p2"><%= link_to "All posts", posts_path %></p>
-    <% Post.tag_counts_on(:categories).each do |category| %>
-    <p class="p2"><%= link_to category.name, tagged_posts_path(category.name) %></p>
-    <% end %>
-</div>
+    <div class="S_posts">
+        <div class="O_filter">
+            <% if current_user.present? %>
+                <p class="p3 A_tag white"><%= link_to "Мои посты", my_posts_path %></p>
+            <% end %>
+            <p class="p3 A_tag white"><%= link_to "All posts", posts_path %></p>
 
-<div id="posts">
-    
-    <div class="search">
-      <h3>Что вас интересует?</h3>
-      <button class="search_button"><p class="p2">Поиск</p></button> 
+            <div class="W_favTags">
+                <div class="W_categories">
+
+                    <% Post.tag_counts_on(:tags).each do |tag| %>
+                    <p class="p3 A_tag"><%= link_to tag.name, tagged_posts_path(tag.name) %></p>
+                    <% end %>
+                </div>
+            </div>
+
+            <div class="W_favTags">
+                <div class="W_categories">
+                    <% Post.tag_counts_on(:categories).each do |category| %>
+                    <p class="p3 A_tag opinion"><%= link_to category.name, tagged_posts_path(category.name) %></p>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="C_posts">
+        
+            <%= render collection: @posts, partial: "posts/post" %>
+        </div>
     </div>
-
-    <br>
-    
-
-    <%= render collection: @posts, partial: "posts/post" %>
 </div>

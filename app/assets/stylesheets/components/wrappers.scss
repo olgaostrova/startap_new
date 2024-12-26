@@ -1,0 +1,118 @@
+body {
+    .W_postContent {
+        display: flex;
+        width: 630px;
+        padding: 14px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    .W_postInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        align-self: stretch;
+    }
+
+    .W_interactive {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .W_infoName {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .W_postTitleInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        align-self: stretch;
+    }
+
+    .W_categories {
+        display: flex;
+        align-items: flex-start;
+        align-content: flex-start;
+        gap: 8px;
+        align-self: stretch;
+        flex-wrap: wrap;
+    }
+
+    .W_interactive {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .W_interactiveComment {
+        display: flex;
+        align-items: flex-end;
+        gap: 74px;
+    }
+
+    .W_favTags {
+        max-width: 492px;
+        display: flex;
+        align-items: flex-start;
+        align-content: flex-start;
+        gap: 8px;
+        align-self: stretch;
+        flex-wrap: wrap;
+        background-color: var(--white);
+        padding: 8px;
+        border-radius: 8px;
+    }
+
+    .W_actionsStartup {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-self: stretch;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .M_userInfoAvatar {
+        display: flex;
+        align-items: flex-end;
+        gap: 8px;
+    }
+
+    .M_userInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .W_choice {
+
+        width: 100%;
+
+        select {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            border-radius: 8px;
+            background-color: white;
+            padding: 8px 12px;
+            width: 100%;
+            font-family: "Neutral Face", sans-serif;
+            font-size: 16px;
+            margin-top: 8px;
+            
+        }
+
+        &.long {
+            width: 100%;
+        }
+    }
+}

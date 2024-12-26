@@ -1,0 +1,29 @@
+
+<% 
+like = likeable.likes.where(user_id: current_user.id)
+dislike = dislikeable.dislikes.where(user_id: current_user.id)
+button_style = like && like.count > 0 ? "like" : dislike && dislike.count > 0 ? "dislike" : "default"
+%>
+<% if current_user %>
+    <% if button_style == "like" %>
+        <div class="M_actionButton like">   
+    <% elsif button_style == "dislike" %>
+         <div class="M_actionButton dislike">   
+    <% else %>
+         <div class="M_actionButton default">   
+    <% end %>
+        <%= link_to(like_toggle_path(type: likeable.class, id: likeable.id), data: { turbo_stream: true }) do %>
+            <div class="A_buttonsContent action">
+                    <%= image_tag "button_icons/upvote_default.svg", class: "A_iconPost" %>
+            </div>
+        <% end %>
+
+            <p class="A_buttonsContent text p1"><%= likeable.likes.count - getDislikesModule(dislikeable.dislikes.count) %></p>
+
+        <%= link_to(dislike_toggle_path(type: dislikeable.class, id: dislikeable.id), data: {turbo_stream: true}) do %>
+            <div class="A_buttonsContent action">
+                    <%= image_tag "button_icons/downvote_default.svg", class: "A_iconPost" %>
+            </div>
+        <% end %>
+    </div>
+<% end %>

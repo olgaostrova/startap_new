@@ -1,0 +1,214 @@
+body {
+    .A_imageCover {
+        width: 602px;
+        height: 338px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        background-size: cover;
+    }
+
+    .A_avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 6.4px;
+
+        &.big {
+            width: 64px;
+            height: 64px;
+            border-radius: 8px;
+        }
+    }
+
+    .A_buttonsContent {
+        display: flex;
+        width: 48px;
+        height: 40px;
+        padding: 8px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-radius: 9px;
+
+        &.action:hover {
+            background-color: var(--grey);
+        }
+
+        &.text {
+            cursor: default;
+        }
+
+                
+    }
+
+    .A_iconPost {
+        display: flex;
+        width: 24px;
+        height: 24px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+        border-radius: 4px;
+    }
+
+    .A_tag {
+        display: flex;
+        padding: 9px 20px 8px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-radius: 8px;
+        background: var(--background);
+
+        &.choosen {
+            background: var(--black);
+        }
+
+        &.white {
+            background: var(--white);
+        }
+
+        &.opinion {
+            &:hover {
+                background-color: var(--yellow);
+            }
+        }
+
+        &.update {
+            &:hover {
+                background: var(--light-red);
+            }
+        }
+
+        &.advice {
+            &:hover {
+                background: var(--azure);
+            }
+        }
+
+        &.search {
+            &:hover {
+                background: var(--purple);
+            }
+        }
+
+        &.how-to {
+            &:hover {
+                background: var(--blue);
+            }
+        }
+
+        &.opinion {
+            &.selected {
+                background-color: var(--yellow);
+            }
+        }
+        
+        &.update {
+            &.selected {
+                background: var(--light-red);
+            }
+        }
+        
+        &.advice {
+            &.selected {
+                background: var(--azure);
+            }
+        }
+        
+        &.search {
+            &.selected {
+                background: var(--purple);
+            }
+        }
+        
+        &.how-to {
+            &.selected {
+                background: var(--blue);
+            }
+        }
+    }
+
+    .A_date {
+        align-self: stretch;
+        color: var(--grey);
+    }
+
+    .A_author {
+        color: var(--grey);
+    }
+
+    .A_role {
+        color: var(--white);
+        display: flex;
+        padding: 8px 12px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 21px;
+        background: var(---black, #02020F);
+    }
+
+    .A_squareButton {
+        color: var(--white);
+        display: flex;
+        padding: 14px 24px 12px 24px;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        border-radius: 8px;
+        background: var(---black, #02020F);
+        font-family: "Neutral Face", sans-serif;
+        font-size: 16px;
+
+        @media screen and (max-width: 496px) {
+            width: 100%;
+        }
+    }
+
+    .A_textField, .field {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 8px;
+        background-color: white;
+        padding: 4px 12px;
+        width: 100%;
+        font-family: "Neutral Face", sans-serif;
+        font-size: 12px;
+        margin-top: 8px;
+
+        label {
+            color: grey;
+            font-size: 12px;
+        }
+
+        &.text-area {
+            textarea {
+                border: 0px;
+                padding: 8px 0;
+                height: 240px;
+                width: -webkit-fill-available;
+            }
+        }
+    }
+
+    .A_addButton, .actions {
+        margin-top: 16px;
+        text-align: center;
+        background: var(--gradient);
+        font-family: "Neutral Face", sans-serif;
+        font-size: 24px;
+        padding: 16px 16px;
+        border-radius: 100px;
+        color: var(--white);
+        width: 100%;
+        box-shadow: 0px 0px 20px 5px rgba(195, 161, 234, 0.20);
+
+        * {
+            color: var(--white);
+        }
+    }
+}

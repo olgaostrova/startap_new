@@ -1,9 +1,39 @@
+<% title "Стартапы" %>
+
 <p style="color: green"><%= notice %></p>
 
-<% if can? :create, Startup %>
-  <%= link_to "New startup", new_startup_path %>
-<% end%>
+<div class="S_startupsPage">
+    <p class="p2" style="color: green"><%= notice %></p>
 
-<div id="startups">
- <%= render collection: @startups, partial: "startups/startup" %>
+    <% if can? :create, Startup %>
+    <%# if current_user && current_user.admin?%>
+    <%# if can? :create, Startup %>
+    <button class="A_addButton"><%= link_to "New startup", new_startup_path %></button>
+    <% end %>
+
+    <div class="S_startups">
+        <div class="O_filter">
+            <% if current_user.present? %>
+                <p class="p3 A_tag white"><%= link_to "Мои посты", my_startups_path %></p>
+            <% end %>
+            <p class="p3 A_tag white"><%= link_to "All startups", startups_path %></p>
+
+            <div class="W_favTags">
+                <div class="W_categories">
+
+                    <% Startup.tag_counts_on(:tags).each do |tag| %>
+                    <p class="p3 A_tag"><%= link_to tag.name, tagged_startups_path(tag.name) %></p>
+                    <% end %>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div id="C_startups">
+        
+            <%= render collection: @startups, partial: "startups/startup" %>
+
+        </div>
+    </div>
 </div>

@@ -1,39 +1,33 @@
 <div class="<%= 'reply' if comment.comment_id != nil %>" id="<%= dom_id comment %>">
     
-  <p>
-    <%= comment.text %>
-  </p>
-
-  <div class="feedback">
-    <div class="likes"> 
-    <p> Лайки </p> 
-    <%= comment.likes.count %>
-    </div>   
-    <div class="likes"> 
-    <p> Дизлайки </p> 
-    <%= comment.dislikes %>
-    </div>  
-    <div class="taps"> 
-    <p> Тапы </p> 
-    <%= comment.taps %>
-    </div>    
-  </div>
-
-  <%= comment.user.email %>
-
-  Id: <%= comment.id %>, Nested level: <%= nested_level(comment) %>
-
-  <%= render partial: "like/button", locals: { likeable: comment } %>
+    <div class="O_comment">
+       <%= image_tag comment.user.profile.avatar.url, class: 'A_avatar' %>
+      <div class="M_commentContent">
+        <div class="M_comment">
+          <p class="p1"><%= "#{comment.user.profile.name} #{comment.user.profile.surname}" %></p>
+          <p class="p2"><%= comment.text %></p>
+        </div>
+        <div class="W_interactive">
+          <div class="M_actionButton upvote">
+            <%= render partial: "tap/button", locals: { tapable: comment } %>
+          </div>
+          <div class="M_actionButton upvote">
+            <%= render partial: "upvote/button", locals: { likeable: comment, dislikeable: comment } %>
+          </div>
+        </div>
+         <%= render partial: "comments/form",
+            locals: {
+              comment: Comment.new,
+              parent_comment_id: comment.id } %>
+        </div>
+      </div>
+        
 
 
-  <%= render partial: "comments/form",
-                        locals: {
-                          comment: Comment.new,
-                          parent_comment_id: comment.id } %>
-
-  <% if comment.replies.any? %>
-    <%= render comment.replies, partial: "comments/comment", as: :comment %>
-  <% end %>
+  
+    <% if comment.replies.any? %>
+      <%= render comment.replies, partial: "comments/comment", as: :comment %>
+    <% end %>
 
 
 

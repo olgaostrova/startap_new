@@ -1,12 +1,23 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @startup %>
+<div class="S_startupsSection">
 
-<div class="buttons_collection">
+  <%= render @startup %>
 
-<% if can? :edit, @project %>
-  <%= link_to "Edit this startup", edit_startup_path(@startup) %>
-  <%= link_to "Back to startups", startups_url %>
-  <%= button_to "Destroy this startup", startup_path(@startup), method: :delete %>
-<% end %>
-</div>
+  <div class="C_postManage">
+
+       <% if can? :manage, @startup %>
+            <p class="p1"><%= link_to "Edit this startup", edit_startup_path(@startup) %></p>
+            <div class="p1 button_destroy"><%= button_to "Destroy this startup", startup_path(@startup), method: :delete %></div>
+       <% end %>
+
+       <p class="p1"><%= link_to "Back to startups", startups_url %></p>
+
+  </div>
+
+    <div id="C_posts">
+
+        <%= render collection: @posts, partial: "posts/post", locals: { startup: @startup }  %>
+    </div>
+  </div>
+</div class="S_startupssSection">

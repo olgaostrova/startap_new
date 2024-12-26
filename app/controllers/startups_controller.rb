@@ -31,6 +31,7 @@ class StartupsController < ApplicationController
 
   def show
     #@startups = Startup.find(params[:id])
+    @posts = @startup.posts
   end
 
   def by_tag

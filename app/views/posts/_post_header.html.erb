@@ -1,0 +1,27 @@
+<% if post.startup_id.present? %>
+    <div class="M_stract">
+        <div class="W_infoName">
+            <% if post.present? && post.user.present? && post.startup.avatar.url.present? %>
+                <%= image_tag post.startup.avatar.url, class: 'A_avatar' %>
+            <% end %>
+            <div class="M_startapDesk">
+               <p class="p1"><%= post.startup.name %></p>
+               <p class="p4 A_author"> <%= "#{post.user.profile.name} #{post.user.profile.surname}" %> </p>
+            </div>
+        </div>
+        <p class="p1 A_date"><%= post.created_at.strftime('%H:%M') %></p>
+    </div>
+<% else %>
+    <div class="M_stract">
+        <div class="W_infoName">
+             <% if post.present? && post.user.present? && post.user.profile.present? && post.user.profile.avatar.present? %>
+                <%= image_tag post.user.profile.avatar.url, class: 'A_avatar' %>
+            <% end %>
+            <div class="M_startapDesk">
+                <p class="p1"><%= "#{post.user.profile.name} #{post.user.profile.surname}" %></p>
+                <p class="p4 A_author"> Автор поста </p>
+            </div>
+        </div>
+        <p class="p1 A_date"><%= post.created_at.strftime('%H:%M') %></p>
+    </div>
+<% end %>

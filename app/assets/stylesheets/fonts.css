@@ -1,33 +1,45 @@
 @font-face {
-  font-family: 'Inter';
-  src: url('Inter-Regular.woff2');
+  font-family: "Inter";
+  src: url("Inter-Regular.woff2");
 }
 
 @font-face {
-  font-family: 'Stolzl';
-  src: url('stolzl_regular.otf');
+  font-family: "Stolzl";
+  src: url("stolzl_regular.otf");
 }
 
 @font-face {
-  font-family: 'Neutral Face';
-  src: url('Neutral Face/NeutralFace.otf');
+  font-family: "Neutral Face";
+  src: url("Neutral_Face/NeutralFace.otf");
   font-weight: normal;
 }
 
 @font-face {
-  font-family: 'Neutral Face';
-  src: url('Neutral Face/NeutralFace-Bold.otf');
+  font-family: "Neutral Face";
+  src: url("Neutral_Face/NeutralFace-Bold.otf");
   font-weight: bold;
 }
 
 @font-face {
-  font-family: 'OffBit';
-  src: url('Neutral Face/OffBit-Regular.ttf');
+  font-family: "OffBit";
+  src: url("OffBit/OffBit-Regular.ttf");
   font-weight: normal;
 }
 
 @font-face {
-  font-family: 'OffBit';
-  src: url('Neutral Face/OffBit-Bold.ttf');
+  font-family: "OffBit";
+  src: url("OffBit/OffBit-Bold.ttf");
   font-weight: bold;
+}
+
+@font-face {
+  font-family: "Avenir Next Cyr";
+  src: url("Avenir/AvenirNextCyr-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Avenir Next Cyr";
+  src: url("Avenir/AvenirNextCyr-Medium.ttf");
+  font-weight: 500;
 }

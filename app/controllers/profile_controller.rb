@@ -6,7 +6,7 @@ class ProfileController < ApplicationController
 
   # GET /profile/1 or /profile/1.json
   def show
-    @profile = Profile.first
+    @profile = current_user.profile
   end
 
   # GET /profile/new
@@ -64,6 +64,6 @@ class ProfileController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def profile_params
-      params.require(:profile).permit(:user_id, :avatar, :trust_points, :name, :surname, :descrtiption, :birthday)
+      params.require(:profile).permit(:user_id, :avatar, :trust_points, :name, :surname, :description, :birthday)
     end
 end

@@ -6,11 +6,14 @@ class Ability
   def initialize(user)
     # Define abilities for the user here. For example:
     can :read, Post, public: true
+    can :by_tag, Post, public: true
+    can :by_tag, Startup, public: true
     can :read, Startup, public: true
     can :create, Subscription
 
     return unless user.present?  # additional permissions for logged in users (they can read their own posts)
     can :manage, Post, user: user
+    can :manage, Profile, user: user
     can :manage, Startup, user: user
     can :my, Post
     #can :manage, Chat, user: user

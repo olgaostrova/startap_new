@@ -1,22 +1,32 @@
-<div id="<%= dom_id startup %>" class="post">
-  <h2 class="post_title">
-    <%= link_to startup.name, startup_path(startup) %>
-  </h2>
-
-  <h4 class="author">
-    Автор
-      <%= startup.user.email %><br>
-
-  </h4>
-    
-  <p class="p5 tags">
+<div id="<%= dom_id startup %>" class="O_startup <%= get_random_color %>">
+   
+  <div class="M_stract big desktop">
+    <div class="M_startupDesc">
+      <h2><%= link_to startup.name, startup_path(startup) %></h2>
+      <p class="p1"><%= startup.description %></p>
+    </div>
+    <%= image_tag startup.avatar.url, class: 'A_avatar big' %>
+  </div>
+  
+  <div class="W_categories">
     <% startup.tags.each do |tag| %>
-      <%= link_to tag.name, tagged_startups_path(tag.name) %>
+      <p class="p3 A_tag"><%= link_to tag.name, tagged_posts_path(tag.name) %></p>
     <% end %>
-  </p>
+  </div>
 
-  <p class="description">
-    <%= startup.description %>
-  </p>
+  <div class="M_text">
+    <p class="p2"><%= startup.about %></p>
+    <%= image_tag "eyes.svg", class: 'A_textIcons' %>
+  </div>
 
+  <div class="W_actionsStartup">
+    <div class="M_userInfoAvatar">
+      <%= image_tag startup.user.profile.avatar.url, class: 'A_avatar big' %>
+      <div class="M_userInfo">
+        <p class="p3 A_role">Основатель</p>
+        <p class="p1"><%= "#{startup.user.profile.name} #{startup.user.profile.surname}" %></p>
+      </div>
+    </div>
+    <button class="A_squareButton">Подписаться</button>
+  </div>
 </div>

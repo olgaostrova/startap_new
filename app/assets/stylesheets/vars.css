@@ -1,10 +1,26 @@
 :root {
-  --white: #fafafa;
-  --bright-blue: #3a66ff;
-  --blue: #869ffa;
-  --light-blue: #cbd5fb;
-  --very-light-blue: #edeff6;
-  --light-grey: #f2f2f2;
-  --black: #1f2026;
+  --black: #02020f;
   --grey: #b9b9b9;
+  --white: #fafafa;
+  --background: #f2f2f2;
+
+  --red: #ff5134;
+  --green: #99d18e;
+  --light-red: #ff7c6c;
+  --azure: #9decdc;
+  --blue: #b1ddff;
+  --purple: #b8bbfe;
+  --yellow: #f3e481;
+  --png-back: url("png-back.jpg");
+
+  --gradient: linear-gradient(
+    93deg,
+    #bfc0f6 4.8%,
+    #e2d8c7 14.77%,
+    #fcd369 29.93%,
+    #fca331 41.63%,
+    #f58a06 55.06%,
+    #dba19d 78.03%,
+    #bbbbf7 91.46%
+  );
 }

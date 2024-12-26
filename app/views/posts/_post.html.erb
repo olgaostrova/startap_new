@@ -1,38 +1,53 @@
-<div id="<%= dom_id post %>" class="post">
-    <div class="W_postHeader">
-        <div class="M_stract">
-            <%= image_tag post.user.profile.avatar.url, class: 'avatar'  %>
-            <div class="M_startapDesk">
-               <p class="p4"><%= post.user.email %></p>
-               <p class="p5 caption">автор поста</p>
-            </div>
+<div id="<%= dom_id post %>" class="S_post">
+  <div class="O_post">
+    <div class="W_postInfo">
+      <%= render "posts/post_header", post: post, user: post.user %>
+
+      <div class="W_postTitleInfo">
+        <h5><%= link_to post.title, post_path(post) %></h5>
+
+        <div class="С_tagsAndCollection">
+
+          <div class="W_categories">
+            <% post.categories.each do |category| %> 
+              <%= link_to(tagged_posts_path(category.name)) do %>
+                <p class="p3 A_tag opinion selected"><%= category.name %></p>
+              <% end %> 
+            <% end %> 
+
+            <% post.tags.each do |tag| %>
+              <p class="p3 A_tag"><%= link_to tag.name, tagged_posts_path(tag.name) %></p>
+            <% end %>
+          </div>
+
         </div>
-    </div>
-    <h4 class="post_title">
-        <%= link_to post.title, post_path(post) %>
-    </h3>
-    <p class="p5"><%= post.text %></p>
-    <p class="p5 tags">
-      <% post.tags.each do |tag| %>
-      <%= link_to tag.name, tagged_posts_path(tag.name) %>
+
+      </div>
+
+      <p class="p2"><%= post.text.html_safe  %></p>
+
+      <% if post.cover.url %> 
+          <%= image_tag post.cover.url, class: 'A_imageCover'  %>
       <% end %>
-    </p>
-      <% post.categories.each do |category| %> 
-            <%= link_to category.name, tagged_posts_path(category.name), class: "p5 tags" %> 
-      <% end %> 
-    
-    <%= image_tag post.cover.url, class: 'post_cover'  %>
 
+      <% if current_user.present? %>
 
-    <div class="W_interactive">
-        <div class="comments"><p class="p1"><%= post.comments.size %></p></div>
-        <p class="p6 time"><%= post.created_at %></p>
-        <p class="p6 time">
-            <%= post.created_at.strftime('%e %B %Y %H:%M') %>
-            </p>
-        
+        <div class="W_interactive">
+          <div class="M_actionButton upvote">
+            <%= render partial: "upvote/button", locals: { likeable: post, dislikeable: post } %>
+          </div>
+  
+          <%= link_to(post_path(post)) do %>
+            <div class="M_actionButton action">   
+              <div class="A_buttonsContent">
+                <%= image_tag "button_icons/comment_default.svg", class: "A_iconPost" %>
+              </div>
+              <p class="A_buttonsContent p1"><%= post.comments.size %></p>
+            </div>
+          <% end %>
+        </div>
+
+      <% end %>
     </div>
-
-    <%= render partial: "like/button", locals: { likeable: post } %>
-    
+  </div>
 </div>

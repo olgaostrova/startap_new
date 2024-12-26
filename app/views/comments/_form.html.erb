@@ -19,13 +19,13 @@
 
 
   <%= form_for([@post, @post.comments.build]) do |form| %>
-    <div class="text_field">
+    <div class="M_commentForm">
       <%# # form.label :text, style: "display: block"  %>
       <%= form.text_area :text %>
     </div>  
 
-    <button class="comment_button">
-      <p class="p2"><%= form.submit %></p>
+    <button class="A_addButton">
+      <p class="p1"><%= form.submit %></p>
     </button>
   <% end %>
 

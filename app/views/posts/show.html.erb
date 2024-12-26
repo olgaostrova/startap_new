@@ -1,42 +1,37 @@
 <% title @post.title %>
 
-<p style="color: green"><%= notice %></p>
+<div class="S_postsSection">
 
-<br>
 
-<%= render @post %>
+     <%= render @post %>
 
-<br>
+     <div class="S_postComments">
 
-<div class="buttons_collection">
+          <div class="C_postManage">
 
-<% if can? :manage, @post %>
-     <%= link_to "Edit this post", edit_post_path(@post) %>
-     <%= button_to "Destroy this post", post_path(@post), method: :delete %>
-<% end %>
+               <% if can? :manage, @post %>
+                    <p class="p1"><%= link_to "Edit this post", edit_post_path(@post) %></p>
+                    <div class="p1 button_destroy"><%= button_to "Destroy this post", post_path(@post), method: :delete %></div>
+               <% end %>
 
+               <p class="p1"><%= link_to "Back to posts", index_url %></p>
+
+          </div>
+
+          <% if current_user %>
+          <p style="color: green" class="p2"><%= notice %></p>
+
+          <%= render "comments/form", post: @post, comment: Comment.new %>
+
+          <% end %>
+
+          <div class="C_commentsList">
+               <% @post.comments.no_replies.each do |comment| %>
+
+               <%= render "comments/comment", post: @post, comment: comment %>
+
+               <% end %>
+          </div>
+     </div>
 </div>
 
-<br>
-
-<h3>
-Комментарии
-</h3>
-
-
-
-<% if current_user %>
-
-<%= render "comments/form", post: @post, comment: Comment.new %>
-
-<% end %>
-
-<div class="comments_list">
-<% @post.comments.no_replies.each do |comment| %>
-
-<%= render "comments/comment", post: @post, comment: comment %>
-
-<% end %>
-
-<%= link_to "Back to posts", index_url %>
-  

@@ -6,44 +6,62 @@ end %>
 
 <%= form_with(model: post) do |form| %>
 <%#= form_with(model: post) do |form| %>
-<% if post.errors.any? %>
-<div style="color: red">
-    <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+  <% if post.errors.any? %>
+    <div style="color: red">
+        <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-    <ul>
-        <% post.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-        <% end %>
-    </ul>
-</div>
-<% end %>
+        <ul>
+            <% post.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+            <% end %>
+        </ul>
+    </div>
+  <% end %>
 
-<!-- Скрытое поле для startup_id -->
-<%#= form.hidden_field :startup_id, value: @startup.id %>
+  <!-- Скрытое поле для startup_id -->
+  <%#= form.hidden_field :startup_id, value: @startup.id %>
 
-<div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-</div>
+  <div class="S_createPost">
+    <div class="O_createPost">
+      <div class="M_textField">
+        <h5>Параметры поста</h5>
+        <div class="C_textFieldBig">
+          <div class="C_textField">
+            <div class="W_choice short">
+            <p class="p3">Выберите категорию</p>
+              <%= form.select :category_list, valid_categories %>
+            </div>
+            <div class="W_choice short">
+            <p class="p3">Выберите теги</p>
+              <%= form.select :tag_list, valid_tags, {}, multiple: true %>
+            </div>
+          </div>
+          <div class="W_choice long">
+            <p class="p3">Выберите стартап</p>
+            <%= form.collection_select :startup_id, current_user.startups.order(:name), :id, :name, include_blank: true %>
+          </div>
+        </div>
+      </div>
+      <div class="M_textField">
+        <h5>Параметры поста</h5>
+          <div class="C_textField">
+            <div class="A_textField">
+              <%= form.label :Заголовок, style: "display: block" %>
+              <%= form.text_field :Заголовок %>
+            </div>
+            <div class="A_textField text-area">
+              <%= form.label :Текст, style: "display: block" %>
+              <%= form.text_area :Текст %>
+            </div>
+          </div>
+          <div>
+            <%= form.label :Обложка, style: "display: block" %>
+            <%= form.file_field :Обложка %>
+          </div>
+        </div>
+      </div>
 
-<div>
-    <%= form.label :text, style: "display: block" %>
-    <%= form.text_field :text %>
-</div>
-
-<div>
-  <%= form.label :cover, style: "display: block" %>
-  <%= form.file_field :cover %>
-</div>
-
-<%= form.select :tag_list, valid_tags, {}, multiple: true %>
-
-<%= form.select :category_list, valid_categories %>
-
-<%= form.collection_select :startup_id, current_user.startups.order(:name), :id, :name, include_blank: true %>
-
-
-<div>
-    <button class="actions"><%= form.submit %></button>
-</div>
+      <button class="A_addButton"><%= form.submit %></button>
+    </div>
+  </div>
 <% end %>

@@ -1,0 +1,20 @@
+<% if current_user %>
+
+    <% 
+    tap = tapable.taps.where(user_id: current_user.id)
+    button_style = tap && tap.count > 0 ? "tap" : "default"
+    %>
+
+    <%= link_to(tap_toggle_path(type: tapable.class, id: tapable.id), data: {turbo_stream: true}) do %>
+        <% if button_style == "tap" %>
+            <div class="M_actionButton tap">   
+        <% else %>
+             <div class="M_actionButton action">   
+        <% end %>
+            <div class="A_buttonsContent">
+                <%= image_tag "button_icons/tap_default.svg", class: "A_iconPost" %>
+            </div>
+            <p class="A_buttonsContent p1"><%= tapable.taps.count %></p>
+      </div>
+    <% end %>
+<% end %>

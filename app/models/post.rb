@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   belongs_to :startup, optional: true
   has_many :comments, dependent: :destroy
   has_many :likes, as: :likeable
+  has_many :dislikes, as: :dislikeable
 
 
   acts_as_taggable_on :tags

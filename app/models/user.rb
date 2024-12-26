@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :comments
   has_many :tags
   has_many :likes
+  has_many :dislikes
+  has_many :taps
 
   after_create :create_profile
   #after_create :create_user_profile

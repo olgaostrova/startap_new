@@ -2,6 +2,12 @@
  *= require reset 
  *= require fonts 
  *= require basics
- *= require vars
+ *= require components/atoms
+ *= require components/collections
+ *= require components/molecules
+ *= require components/organisms
+ *= require components/superorganisms
+ *= require components/wrappers
  *= require main_styles
+ *= require vars
  */

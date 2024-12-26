@@ -22,4 +22,12 @@ module CommentsHelper
     end
     level + parent_level
   end
+
+  def getDislikesModule(dislikes)
+    count = dislikes
+    if count < 0
+      count *= 1
+    end
+    count
+  end
 end

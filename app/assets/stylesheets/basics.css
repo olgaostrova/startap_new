@@ -1,5 +1,5 @@
-body {
-  font-family: 'Inter', sans-serif;
+/* body {
+  font-family: "Inter", sans-serif;
   background-color: var(--very-light-blue);
   display: flex;
   flex-direction: column;
@@ -13,27 +13,27 @@ body {
 }
 
 h1 {
-  font-family: 'stolzl', sans-serif;
+  font-family: "stolzl", sans-serif;
   font-size: 48px;
 }
 
 h2 {
-  font-family: 'stolzl', sans-serif;
+  font-family: "stolzl", sans-serif;
   font-size: 40px;
 }
 
 h3 {
-  font-family: 'stolzl', sans-serif;
+  font-family: "stolzl", sans-serif;
   font-size: 32px;
 }
 
 h4 {
-  font-family: 'stolzl', sans-serif;
+  font-family: "stolzl", sans-serif;
   font-size: 24px;
 }
 
 h5 {
-  font-family: 'stolzl', sans-serif;
+  font-family: "stolzl", sans-serif;
   font-size: 16px;
 }
 
@@ -53,7 +53,7 @@ svg {
 }
 
 #screen_1 {
-  background-image: url('/autouploader/screen_1_back.jpg');
+  background-image: url("/autouploader/screen_1_back.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -70,7 +70,7 @@ svg {
 }
 
 #screen_2 {
-  background-image: url('/autouploader/screen_2_back.jpg');
+  background-image: url("/autouploader/screen_2_back.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -114,7 +114,7 @@ svg {
 }
 
 #screen_3 {
-  background-image: url('/autouploader/screen_3_back.jpg');
+  background-image: url("/autouploader/screen_3_back.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -313,7 +313,7 @@ svg {
 
 #menubar {
   z-index: 100;
-  font-family: 'stolzl';
+  font-family: "stolzl";
   color: var(--white);
   position: fixed;
   top: 3.23rem;
@@ -337,27 +337,6 @@ svg {
     color: var(--white);
   }
 }
-
-body::-webkit-scrollbar {
-  width: 12px;
-  /* ширина scrollbar */
-}
-
-body::-webkit-scrollbar-track {
-  background: white;
-  /* цвет дорожки */
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: #FF5134;
-  /* цвет плашки */
-  border-radius: 20px;
-  /* закругления плашки */
-  border: 3px solid white;
-  /* padding вокруг плашки */
-}
-
-/*стили для основного сервиса*/
 
 input {
   max-width: 25rem;
@@ -384,15 +363,13 @@ input {
     color: black;
 
     &:hover {
-      color: #FF5134;
+      color: #ff5134;
     }
   }
 
   @media screen and (max-width: 824px) {
     display: none;
   }
-
-  
 }
 
 #user_remember_me {
@@ -448,7 +425,6 @@ input {
   margin: 0 auto;
 }
 
-
 .feedback {
   display: flex;
   flex-direction: row;
@@ -465,7 +441,6 @@ input {
     }
   }
 }
-
 
 a {
   color: var(--bright-blue);
@@ -546,4 +521,4 @@ a {
   * {
     color: var(--grey);
   }
-}
+} */

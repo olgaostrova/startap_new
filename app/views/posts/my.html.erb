@@ -1,9 +1,44 @@
+<% title "Мои посты" %>
+
 <p style="color: green"><%= notice %></p>
 
-<% if current_user && current_user.admin?%>
-  <%= link_to "New post", new_admin_post_path %>
-<% end%>
 
-<div id="posts">
- <%= render collection: @posts, partial: "posts/post" %>
+<div class="S_postsPage">
+    <p class="p2" style="color: green"><%= notice %></p>
+
+    <% if can? :create, Post %>
+    <%# if current_user && current_user.admin?%>
+    <%# if can? :create, Post %>
+      <p class="p2"><%= link_to "New post", new_post_path %></p>
+    <% end %>
+
+    <div class="S_posts">
+        <div class="O_filter">
+            <p class="p3 A_tag white"><%= link_to "Мои посты", my_posts_path %></p>
+            <p class="p3 A_tag white"><%= link_to "All posts", posts_path %></p>
+
+            <div class="W_favTags">
+                <div class="W_categories">
+
+                    <% Post.tag_counts_on(:tags).each do |tag| %>
+                    <p class="p3 A_tag"><%= link_to tag.name, tagged_posts_path(tag.name) %></p>
+                    <% end %>
+                </div>
+            </div>
+
+            <div class="W_favTags">
+                <div class="W_categories">
+                    <% Post.tag_counts_on(:categories).each do |category| %>
+                    <p class="p3 A_tag opinion"><%= link_to category.name, tagged_posts_path(category.name) %></p>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="C_posts">
+        
+            <%= render collection: @posts, partial: "posts/post" %>
+        </div>
+    </div>
 </div>

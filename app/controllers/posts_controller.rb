@@ -4,10 +4,13 @@ class PostsController < ApplicationController
 
   def index
     if current_user && current_user.admin?
-      @posts = Post.all
-    elsif current_user
-      @posts = Post.where(public: true)
+      @posts = Post.all.limit(30)
+    else 
+      @posts = Post.where(public: true).limit(30)
     end
+
+    #@posts = Post.paginate(page: params[:page], per_page: 30)
+
   end
 
   def edit
@@ -27,7 +30,7 @@ class PostsController < ApplicationController
   end
 
   def by_tag
-    @posts = Post.tagged_with(params[:tag])
+    @posts = Post.tagged_with(params[:tag]).where(public: true)
     render :index
   end
 
