@@ -1,9 +1,18 @@
 
 <% 
-like = likeable.likes.where(user_id: current_user.id)
-dislike = dislikeable.dislikes.where(user_id: current_user.id)
-button_style = like && like.count > 0 ? "like" : dislike && dislike.count > 0 ? "dislike" : "default"
+
+if current_user 
+    like = likeable.likes.where(user_id: current_user.id)
+    dislike = dislikeable.dislikes.where(user_id: current_user.id)
+    button_style = like && like.count > 0 ? "like" : dislike && dislike.count > 0 ? "dislike" : "default"
+else
+    like = likeable.likes.count
+    dislike = dislikeable.dislikes.count
+    button_style = like && like.count > 0 ? "like" : dislike && dislike.count > 0 ? "dislike" : "default"
+end 
+
 %>
+
 <% if current_user %>
     <% if button_style == "like" %>
         <div class="M_actionButton like">   

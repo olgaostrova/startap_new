@@ -41,6 +41,9 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
+        if current_user.posts.count == 1
+          UserMailer.with(user: current_user).welcome_email.deliver_now
+        end
         format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }
       else
