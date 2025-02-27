@@ -1952,7 +1952,8 @@ def create_users(quantity)
   quantity.times do
     user_data = {
       email: "user_#{i}@email.com",
-      password: "testtest",
+      password: "testtest"
+      #jti: SecureRandom.uuid
     }
 
     if i == 1
@@ -1962,7 +1963,7 @@ def create_users(quantity)
     user = User.create!(
       user_data
     )
-    puts "User created with id #{user.id}"
+    puts "User created with id #{user.id} with UUID #{user.jti}"
 
     i = i + 1
 

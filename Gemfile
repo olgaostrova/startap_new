@@ -36,6 +36,8 @@ gem 'acts-as-taggable-on'
 
 gem 'htmlbeautifier'
 
+gem 'devise-jwt'
+
 
 #чисто для ворнинга сделано
 

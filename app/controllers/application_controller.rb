@@ -8,4 +8,15 @@ class ApplicationController < ActionController::Base
       format.html { redirect_to root_path, alert: exception.message }
     end
   end
+
+  def authenticate_guest
+    if current_user
+      if cookies[:guest_token]
+        puts cookies[:guest_token] == current_user.jti
+      else
+        cookies[:guest_token] = current_user.jti
+      end
+    end
+  end
+
 end
