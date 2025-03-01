@@ -38,6 +38,8 @@ gem 'htmlbeautifier'
 
 gem 'devise-jwt'
 
+gem "jwt"
+
 
 #чисто для ворнинга сделано
 

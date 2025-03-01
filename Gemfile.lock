@@ -358,6 +358,7 @@ DEPENDENCIES
   htmlbeautifier
   importmap-rails
   jbuilder
+  jwt
   letter_opener
   letter_opener_web (~> 3.0)
   logger

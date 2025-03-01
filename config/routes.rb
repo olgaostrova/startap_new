@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   namespace :api, format: 'json' do
     namespace :v1 do
-      resources :posts, only: [:index, :show, :create]
-      resources :startups, only: [:index, :show]
+      resources :posts, only: [:index, :show, :create, :update, :destroy]
+      resources :startups, only: [:index, :show, :create, :update, :destroy]
 
       get 'welcome/index'
       get 'profile', to: "profile#show"
