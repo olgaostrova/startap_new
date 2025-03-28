@@ -1,17 +1,17 @@
-<p style="color: green"><%= notice %></p>
 
-<div class="S_startupsSection">
+<div class="S_postContainer"> 
+<%# <p style="color: green"><%= notice %>
 
   <%= render @startup %>
 
   <div class="C_postManage">
 
        <% if can? :manage, @startup %>
-            <p class="p1"><%= link_to "Edit this startup", edit_startup_path(@startup) %></p>
-            <div class="p1 button_destroy"><%= button_to "Destroy this startup", startup_path(@startup), method: :delete %></div>
+            <p class="p5"><%= link_to "Редактировать этот стартап", edit_startup_path(@startup) %></p>
+            <p class="p5 button_destroy"><%= button_to "Удалить этот стартап", startup_path(@startup), method: :delete %></p>
        <% end %>
 
-       <p class="p1"><%= link_to "Back to startups", startups_url %></p>
+       <p class="p5"><%= link_to "Вернуться к стартапам", startups_url %></p>
 
   </div>
 
@@ -20,4 +20,6 @@
         <%= render collection: @posts, partial: "posts/post", locals: { startup: @startup }  %>
     </div>
   </div>
-</div class="S_startupssSection">
+</div">
+
+<%= render "sidebar" %>

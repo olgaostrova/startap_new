@@ -11,8 +11,16 @@
   </head>
 
   <body>
-    <%= render "menubar" %>
-    <%= yield %>
+
+    <div class="S_mainContainer">
+      <%= render "menubar" %>
+      
+      <%#= render "devise/shared/links" %>
+      <%= yield %>
+
+
+    </div>
+
     <%= render "footer" %>
   </body>
 </html>

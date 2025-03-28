@@ -13,21 +13,23 @@
 
 <% if current_user %>
 
-<% if defined? parent_comment_id %>
-<%= form.hidden_field :comment_id, value: parent_comment_id %>
-<% end %>
-
-
-  <%= form_for([@post, @post.comments.build]) do |form| %>
-    <div class="M_commentForm">
-      <%# # form.label :text, style: "display: block"  %>
-      <%= form.text_area :text %>
-    </div>  
-
-    <button class="A_addButton">
-      <p class="p1"><%= form.submit %></p>
-    </button>
+  <% if defined? parent_comment_id %>
+  <%= form.hidden_field :comment_id, value: parent_comment_id %>
   <% end %>
 
-<% end %>
+    <div class="O_commentField">
+
+      <%= form_for([@post, @post.comments.build]) do |form| %>
+        <div class="M_commentForm">
+          <%# # form.label :text, style: "display: block"  %>
+          <%= form.text_area :text %>
+        </div>  
+
+        <button class="A_addButton">
+          <p class="p6"><%= form.submit "↑" %></p>
+        </button>
+      <% end %>
+
+    </div>
+  <% end %>
 <% end %>

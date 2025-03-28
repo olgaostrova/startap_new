@@ -1,7 +1,5 @@
 :root {
-  --black: #02020f;
   --grey: #b9b9b9;
-  --white: #fafafa;
   --background: #f2f2f2;
 
   --red: #ff5134;
@@ -12,6 +10,17 @@
   --purple: #b8bbfe;
   --yellow: #f3e481;
   --png-back: url("png-back.jpg");
+  --back: url("background.jpg");
+
+  --gray-0: #131314;
+  --gray-1: #303030;
+  --gray-2: #444444;
+  --gray-3: #5a5a5a;
+  --gray-4: #8d8d8d;
+  --gray-5: #b9b9b9;
+  --gray-6: #d1d1d1;
+  --white: #fbfbfb;
+  --black: #131314;
 
   --gradient: linear-gradient(
     93deg,

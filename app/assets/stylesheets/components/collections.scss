@@ -13,6 +13,18 @@
     align-self: stretch;
 }
 
+.C_inputField {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+    flex-direction: row;
+
+    &.text-area {
+        height: 240px;
+    }
+}
+
 .C_textField {
     display: flex;
     align-items: flex-start;
@@ -24,14 +36,29 @@
         height: 240px;
     }
 }
+
 #C_posts {
     display: flex;
     flex-direction: column;
     gap: 18px;
+    align-items: center;
 }
 
 #C_startups {
     display: flex;
     flex-direction: column;
     gap: 18px;
+}
+
+.C_menuPoints {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+}
+
+.C_menuLog {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }

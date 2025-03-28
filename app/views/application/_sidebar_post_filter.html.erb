@@ -1,0 +1,22 @@
+  <div class="S_sideBar">
+    <div class="O_filter">
+        <% if current_user.present? %>
+            <p class="p6 A_tag white"><%= link_to "Мои посты", my_posts_path %></p>
+        <% end %>
+        <p class="p6 A_tag white"><%= link_to "All posts", posts_path %></p>
+        <div class="W_favTags">
+            <div class="W_categories">
+                <% Post.tag_counts_on(:tags).each do |tag| %>
+                <p class="p8 A_tag"><%= link_to tag.name, tagged_posts_path(tag.name) %></p>
+                <% end %>
+            </div>
+        </div>
+        <div class="W_favTags">
+            <div class="W_categories">
+                <% Post.tag_counts_on(:categories).each do |category| %>
+                <p class="p8 A_tag opinion"><%= link_to category.name, tagged_posts_path(category.name) %></p>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

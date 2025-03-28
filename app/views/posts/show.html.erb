@@ -1,37 +1,50 @@
 <% title @post.title %>
+<div class="S_postContainer"> 
 
-<div class="S_postsSection">
-
-
-     <%= render @post %>
-
-     <div class="S_postComments">
-
-          <div class="C_postManage">
-
-               <% if can? :manage, @post %>
-                    <p class="p1"><%= link_to "Edit this post", edit_post_path(@post) %></p>
-                    <div class="p1 button_destroy"><%= button_to "Destroy this post", post_path(@post), method: :delete %></div>
+<div class="W_postEditingContainer">
+     <p class="p5 A_backButton"><%= link_to "← Вернуться к постам", index_url %></p>
+     <div>
+          <% if can? :manage, @post %>
+               <%= link_to(edit_post_path(@post)) do %>
+                    <%= image_tag "button_icons/edit_black" %>
                <% end %>
-
-               <p class="p1"><%= link_to "Back to posts", index_url %></p>
-
-          </div>
-
-          <% if current_user %>
-          <p style="color: green" class="p2"><%= notice %></p>
-
-          <%= render "comments/form", post: @post, comment: Comment.new %>
-
           <% end %>
+     </div>
+</div>
 
-          <div class="C_commentsList">
-               <% @post.comments.no_replies.each do |comment| %>
 
-               <%= render "comments/comment", post: @post, comment: comment %>
+     <div class="S_postsSection">
+
+          <%= render @post %>
+
+          <div class="S_postComments">
+
+               <div class="C_postManage">
+
+                    <% if can? :manage, @post %>
+                         <div class="p5 button_destroy"><%= button_to "Destroy this post", post_path(@post), method: :delete, class: "p5" %></div>
+                    <% end %>
+
+                    
+
+               </div>
+
+               <% if current_user %>
+               <p style="color: green" class="p2"><%= notice %></p>
+
+               <%= render "comments/form", post: @post, comment: Comment.new %>
 
                <% end %>
+
+               <div class="C_commentsList">
+                    <% @post.comments.no_replies.each do |comment| %>
+
+                    <%= render "comments/comment", post: @post, comment: comment %>
+
+                    <% end %>
+               </div>
           </div>
      </div>
 </div>
 
+<%= render "sidebar" %>

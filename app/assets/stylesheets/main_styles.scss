@@ -1,5 +1,10 @@
+#loginHeader {
+    text-align: center;
+    color: var(--white);
+}
+
 .reply {
-    margin-left: 100px;
+    margin-left: 32px;
 
     @media screen and (max-width: 800px) {
         margin-left: 60px;
@@ -11,6 +16,41 @@
     @media screen and (max-width: 430px) {
         margin-left: 15px;
     }
+
+}
+
+.white {
+    color: var(--gray-4);
+}
+
+a {
+    text-decoration: none;
+    all: unset;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.new_user {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    > * {
+        width: 100%;
+    }
+}
+
+.has_replies {
+    padding-left: 16px;
+    border-style: solid;
+    border-width: 0 0 0 0.5px;
+    border-color: var(--gray-3);
+    border-radius: 0 0 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
 
 input[type="text"] {
@@ -96,7 +136,7 @@ body::-webkit-scrollbar-thumb {
 body {
     overflow-x: hidden;
     box-sizing: border-box;
-    background-color: var(--background);
+    background-color: var(--black);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -112,102 +152,240 @@ body {
             font-size: 16px;
         }
     }
-    
 
-    p {
-        color: var(--black);
-    }
-
-    a {
-        color: var(--black);
-    }
-    
 
     h1 {
         font-family: "OffBit", sans-serif;
-        font-size: 120px;
+        font-size: 64px;
         font-weight: bold;
+
+        a {
+            font-family: "OffBit", sans-serif;
+            font-size: 64px;
+            font-weight: bold;
+        }
     }
 
     h2 {
-        font-family: "Neutral Face", sans-serif;
+        font-family: "OffBit", sans-serif;
         font-size: 56px;
+        line-height: 87%;
+        font-weight: bold;
 
-        @media screen and (max-width: 800px) {
-            font-size: 40px;
-        }
-        @media screen and (max-width: 430px) {
-            font-size: 32px;
+        a {
+            font-family: "OffBit", sans-serif;
+            font-size: 56px;
+            line-height: 87%;
+            font-weight: bold;
         }
     }
 
     h3 {
-        font-family: "Neutral Face", sans-serif;
-        font-size: 40px;
+        font-family: "OffBit", sans-serif;
+        font-size: 32px;
+        line-height: 104%;
+        font-weight: bold;
 
-        @media screen and (max-width: 430px) {
-                font-size: 32px;
+        a {
+            font-family: "OffBit", sans-serif;
+            font-size: 32px;
+            line-height: 104%;
+            font-weight: bold;
         }
     }
 
     h4 {
-        font-family: "Neutral Face", sans-serif;
+        font-family: "OffBit", sans-serif;
+        font-size: 12px;
+
+        a {
+            font-family: "OffBit", sans-serif;
+            font-size: 12px;
+        }
+    }
+
+    .p1 {
+        font-family: "HelveticaNeueCyr", sans-serif;
         font-size: 32px;
 
+        @media screen and (max-width: 800px) {
+            font-size: 28px;
+        }
         @media screen and (max-width: 430px) {
+            font-size: 24px;
+        }
+
+        a {
+            font-family: "HelveticaNeueCyr", sans-serif;
+            font-size: 32px;
+        
+            @media screen and (max-width: 800px) {
+                font-size: 28px;
+            }
+        
+            @media screen and (max-width: 430px) {
                 font-size: 24px;
+            }
         }
     }
 
-    h5 {
+    .p2 {
+        font-family: "HelveticaNeueCyr", sans-serif;
+        font-size: 24px;
+
+        @media screen and (max-width: 430px) {
+                font-size: 20px;
+        }
+
+        a {
+            font-family: "HelveticaNeueCyr", sans-serif;
+            font-size: 24px;
+        
+            @media screen and (max-width: 430px) {
+                font-size: 20px;
+            }
+        }
+    }
+
+    .p3 {
         font-family: "Neutral Face", sans-serif;
         font-size: 24px;
 
         @media screen and (max-width: 430px) {
                 font-size: 20px;
         }
-    }
 
-    h6 {
-        font-family: "Avenir Next Cyr", sans-serif;
-        font-size: 24px;
-
-        @media screen and (max-width: 430px) {
+        a {
+            font-family: "Neutral Face", sans-serif;
+            font-size: 24px;
+        
+            @media screen and (max-width: 430px) {
                 font-size: 20px;
+            }
         }
     }
 
-    p {
-
-        &.p1 {
+    .p4 {
         font-family: "Neutral Face", sans-serif;
         font-size: 16px;
 
-            &.bold {
-                font-weight: bold;
-            }
+        @media screen and (max-width: 430px) {
+                font-size: 12px;
+        }
 
+        a {
+            font-family: "Neutral Face", sans-serif;
+            font-size: 16px;
+        
+            @media screen and (max-width: 430px) {
+                font-size: 12px;
+            }
+        }
+    }
+
+    .p5 {
+
+        font-family: "HelveticaNeueCyr", sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+
+        @media screen and (max-width: 430px) {
+                font-size: 12px;
+        }
+
+        a {
+            font-family: "HelveticaNeueCyr", sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+        
             @media screen and (max-width: 430px) {
                 font-size: 12px;
             }
         }
 
-        &.p2 {
-            font-family: "Avenir Next Cyr", sans-serif;
-            font-size: 16px;
-
-            &.medium {
-                    font-weight: medium;
+        form {
+                button {
+                    font-family: "HelveticaNeueCyr", sans-serif;
+                    font-size: 15px;
+                    font-weight: 400;
+                    
+                    @media screen and (max-width: 430px) {
+                        font-size: 12px;
+                    }
             }
         }
+    }
 
-        &.p3 {
-            font-family: "Neutral Face", sans-serif;
-            font-size: 12px;
+    .p6 {
+        font-family: "Neutral Face", sans-serif;
+        font-size: 12px;
+        line-height: 16px;
+
+        @media screen and (max-width: 430px) {
+            font-size: 10px;
         }
 
-        &.p4 {
-            font-family: "Avenir Next Cyr", sans-serif;
+        a {
+            font-family: "Neutral Face", sans-serif;
+            font-size: 12px;
+            line-height: 16px;
+        
+            @media screen and (max-width: 430px) {
+                font-size: 10px;
+            }
+        }
+    }
+
+    .p7 {
+        font-family: "HelveticaNeueCyr", sans-serif;
+        font-size: 12px;
+
+        @media screen and (max-width: 430px) {
+            font-size: 10px;
+        }
+
+        a {
+            font-family: "HelveticaNeueCyr", sans-serif;
+            font-size: 12px;
+        
+            @media screen and (max-width: 430px) {
+                font-size: 10px;
+            }
+        }
+    }
+
+    .p8 {
+        font-family: "Neutral Face", sans-serif;
+        font-size: 8px;
+
+        a {
+            font-family: "Neutral Face", sans-serif;
+            font-size: 8px;
+        }
+    }
+
+    .p9 {
+        font-family: "HelveticaNeueCyr", sans-serif;
+        font-size: 8px;
+
+        a {
+            font-family: "HelveticaNeueCyr", sans-serif;
+            font-size: 8px;
+        }
+    }
+
+
+
+    .S_mainContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        align-self: stretch;
+    }
+
+    .upload {
+        * {
+            font-family: "Neutral Face";
             font-size: 12px;
         }
     }

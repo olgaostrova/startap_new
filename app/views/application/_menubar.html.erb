@@ -1,23 +1,39 @@
-<nav class="S_MenuBar">
-  <div>
+<div class="S_MenuBar">
+  <%= link_to(index_url) do %>
+    <%= image_tag "huge_logo.svg", class: "A_hugeLogo" %> 
+  <% end %>
+  <div class="C_menuPoints">
+
       <%#= link_to "Форум full access", admin_posts_url %>
       <%#= link_to "Песочница full access", admin_startups_url %>
 
     <%# else %>
-    <p class="p1"><%= link_to "Форум", index_url %></p>
-    <p class="p1"><%= link_to "Песочница", startups_url %></p>
+    <p class="p6"><%= link_to "Форум", index_url %></p>
+    <p class="p6"><%= link_to "Песочница", startups_url %></p>
     <% if user_signed_in? && current_user.admin?%>
-      <p class="p1"><%= link_to "Подписки", admin_subscriptions_url %></p>
+      <p class="p6"><%= link_to "Подписки", admin_subscriptions_url %></p>
+    <% end %>
+    <% if user_signed_in? %>
+      <p class="p6"><%= link_to current_user.email, edit_user_registration_path %></p>
+      <p class="p6"><%= link_to "Выйти", destroy_user_session_path, data: { "turbo-method": :delete } %></p>
+    <% else %>
+      <p class="p6"><%= link_to "Log in", new_user_session_path %></p>
+      <p class="p6"><%= link_to "Register", new_user_registration_path %></p>
     <% end %>
   </div>
-  <div>
-  <% if user_signed_in? %>
-    <p class="p1"><%= link_to current_user.email, edit_user_registration_path %></p>
-    <p class="p1"><%= link_to "Выйти", destroy_user_session_path, data: { "turbo-method": :delete } %></p>
-  <% else %>
-    <p class="p1"><%= link_to "Log in", new_user_session_path %></p>
-    <p class="p1"><%= link_to "Register", new_user_registration_path %></p>
-  <% end %>
-  </div>
 
-</nav>
+
+
+  <% if can? :create, Post %>
+    <%# if current_user && current_user.admin?%>
+    <%# if can? :create, Post %>
+    <%# <button class="A_addButton"><%= link_to "New post", new_post_path %>
+    <%= link_to(new_post_path) do %>
+      <button class="A_newPost">
+        <%= image_tag "new-post-button.svg" %>
+      </button>
+    <% end %>
+  <% end %>
+
+
+</div>

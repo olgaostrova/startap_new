@@ -43,3 +43,15 @@
   src: url("Avenir/AvenirNextCyr-Medium.ttf");
   font-weight: 500;
 }
+
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("helveticaNeueCyr/helveticaneuecyr_roman.otf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("helveticaNeueCyr/HelveticaNeueCyr-Medium.otf");
+  font-weight: 500;
+}

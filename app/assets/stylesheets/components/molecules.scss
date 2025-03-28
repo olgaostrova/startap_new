@@ -1,22 +1,5 @@
 body {
 
-    .M_stract {
-        display: flex;
-        height: 48px;
-        justify-content: space-between;
-        align-items: center;
-        align-self: stretch;
-        
-        &.big {
-            display: flex;
-            height: fit-content;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 16px;
-            align-self: stretch;
-        }
-    }
-
     .M_startupDesc {
         display: flex;
         flex-direction: column;
@@ -27,9 +10,8 @@ body {
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        gap: 4px;
         border-radius: 9px;
-        background-color: var(--background);
+        background-color: var(--gray-2);
 
         &.like {
             background-color: var(--green);
@@ -49,23 +31,25 @@ body {
         height: auto;
         flex-direction: column;
         align-items: flex-start;
-        gap: 8px;
+        gap: 12px;
     }
 
     .M_commentForm {
         background-color: var(--background);
         width: 100%;
         min-width: 260px;
-        min-height: 100px;
+        min-height: 40px;
+        max-width: -webkit-fill-available;
         border-radius: 8px;
         margin: 16px 0;
         font-family: "Avenir Next Cyr", sans-serif;
         font-size: 16px;
         padding: 8px;
+        color: var(--black);
 
         * {
             width: 100%;
-            height: 120px;
+            height: 24px;
             max-width: -webkit-fill-available;
             border: 0px;
         }
@@ -73,22 +57,17 @@ body {
 
     .M_startapDesk {
         display: flex;
-        padding-top: 13px;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-        flex: 1 0 0;
-    }
-
-    .M_text {
-        display: flex;
-        padding: 9px 8px;
         justify-content: space-between;
         align-items: flex-start;
         align-self: stretch;
-        border: 1px solid var(---black, #02020F);
-        background: var(---background, #F2F2F2);
+
+        .p1 {
+            color: var(--gray-5);
+            font-weight: bold;
+        }
     }
+
 
     .M_textField {
         display: flex;
@@ -96,5 +75,64 @@ body {
         align-items: flex-start;
         gap: 24px;
         align-self: stretch;
+    }
+
+    .M_form {
+        display: flex;
+        width: 100%;
+        padding: 20px 32px;
+        align-items: center;
+        gap: 15px;
+        border-radius: 8px;
+        background: #303030;
+        font-family: "Neutral Face", sans-serif;
+        font-size: 12px;
+        color: var(--gray-3);
+
+        &.text-area {
+            textarea {
+                border: 0px;
+                padding: 8px 0;
+                height: 240px;
+                width: -webkit-fill-available;
+            }
+        }
+    }
+
+    .M_stract {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .M_comment_header {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+
+        .A_date {
+            color: var(--gray-3);
+        }
+    }
+
+    .M_comment {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .M_hugeButton {
+        
+        background-color: var(--green);
+        color: var(--black);
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+        * {
+            font-family: "Neutral Face";
+            font-size: 15px;
+            color: var(--black);
+        }
     }
 }

@@ -27,7 +27,7 @@ end
             </div>
         <% end %>
 
-            <p class="A_buttonsContent text p1"><%= likeable.likes.count - getDislikesModule(dislikeable.dislikes.count) %></p>
+            <p class="A_buttonsContent text p6"><%= likeable.likes.count - getDislikesModule(dislikeable.dislikes.count) %></p>
 
         <%= link_to(dislike_toggle_path(type: dislikeable.class, id: dislikeable.id), data: {turbo_stream: true}) do %>
             <div class="A_buttonsContent action">

@@ -5,11 +5,13 @@
                 <%= image_tag post.startup.avatar.url, class: 'A_avatar' %>
             <% end %>
             <div class="M_startapDesk">
-               <p class="p1"><%= post.startup.name %></p>
-               <p class="p4 A_author"> <%= "#{post.user.profile.name} #{post.user.profile.surname}" %> </p>
+                <p class="p4"><%= post.startup.name %></p>
+                <div class="W_infoContent">
+                    <p class="p5 A_author"> <%= "#{post.user.profile.name} #{post.user.profile.surname} •" %> </p>
+                    <p class="p6 A_date"><%= post.created_at.strftime('%H:%M') %></p>
+                </div>
             </div>
         </div>
-        <p class="p1 A_date"><%= post.created_at.strftime('%H:%M') %></p>
     </div>
 <% else %>
     <div class="M_stract">
@@ -18,10 +20,16 @@
                 <%= image_tag post.user.profile.avatar.url, class: 'A_avatar' %>
             <% end %>
             <div class="M_startapDesk">
-                <p class="p1"><%= "#{post.user.profile.name} #{post.user.profile.surname}" %></p>
-                <p class="p4 A_author"> Автор поста </p>
+                <p class="p4"><%= "#{post.user.profile.name} #{post.user.profile.surname}" %></p>
+                <div class="W_infoContent">
+                    <p class="p8 A_author"> Автор поста •</p>
+                    <p class="p8 A_date"><%= post.created_at.strftime('%H:%M') %></p>
+                </div>
             </div>
         </div>
-        <p class="p1 A_date"><%= post.created_at.strftime('%H:%M') %></p>
+
+        <div>   
+
+        </div>
     </div>
 <% end %>

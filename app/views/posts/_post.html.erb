@@ -4,19 +4,19 @@
       <%= render "posts/post_header", post: post, user: post.user %>
 
       <div class="W_postTitleInfo">
-        <h5><%= link_to post.title, post_path(post) %></h5>
+        <h3 class="post_title"><%= link_to post.title, post_path(post) %></h2>
 
         <div class="С_tagsAndCollection">
 
           <div class="W_categories">
             <% post.categories.each do |category| %> 
               <%= link_to(tagged_posts_path(category.name)) do %>
-                <p class="p3 A_tag opinion selected"><%= category.name %></p>
+                <p class="p6 A_tag default"><%= category.name %></p>
               <% end %> 
             <% end %> 
 
             <% post.tags.each do |tag| %>
-              <p class="p3 A_tag"><%= link_to tag.name, tagged_posts_path(tag.name) %></p>
+              <p class="p6 A_tag default"><%= link_to tag.name, tagged_posts_path(tag.name) %></p>
             <% end %>
           </div>
 
@@ -24,7 +24,7 @@
 
       </div>
 
-      <p class="p2"><%= post.text.html_safe  %></p>
+      <p class="p5 post_content"><%= post.text.html_safe  %></p>
 
       <% if post.cover.url %> 
           <%= image_tag post.cover.url, class: 'A_imageCover'  %>
@@ -42,7 +42,7 @@
               <div class="A_buttonsContent">
                 <%= image_tag "button_icons/comment_default.svg", class: "A_iconPost" %>
               </div>
-              <p class="A_buttonsContent p1"><%= post.comments.size %></p>
+              <p class="A_buttonsContent p6"><%= post.comments.size %></p>
             </div>
           <% end %>
         </div>

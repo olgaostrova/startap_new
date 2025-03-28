@@ -1,7 +1,13 @@
 
-<%= render "form", post: @post %>
+
+<div class="S_createPost">
+  <%= render "form", post: @post %>
 
 
-<div>
-  <%= link_to "Back to posts", posts_path %>
+  <div class="p5">
+    <%= link_to "← Вернуться к постам", posts_path %>
+  </div>
+
 </div>
+
+<%= render "sidebar" %>

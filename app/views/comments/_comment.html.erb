@@ -1,25 +1,36 @@
-<div class="<%= 'reply' if comment.comment_id != nil %>" id="<%= dom_id comment %>">
+<div class="<%= 
+  classes = []
+  classes << 'reply' if comment.comment_id.present?
+  classes << 'has_replies' if Comment.exists?(comment_id: comment.id)
+  classes.join(' ')
+%>" id="<%= dom_id comment %>">
     
     <div class="O_comment">
        <%= image_tag comment.user.profile.avatar.url, class: 'A_avatar' %>
       <div class="M_commentContent">
         <div class="M_comment">
-          <p class="p1"><%= "#{comment.user.profile.name} #{comment.user.profile.surname}" %></p>
-          <p class="p2"><%= comment.text %></p>
-        </div>
-        <div class="W_interactive">
-          <div class="M_actionButton upvote">
-            <%= render partial: "tap/button", locals: { tapable: comment } %>
+          <div class="M_comment_header">
+            <p class="p6"><%= "#{comment.user.profile.name} #{comment.user.profile.surname}" %></p>
+            <p class="p8 A_date"><%= comment.created_at.strftime('%H:%M') %></p>
           </div>
-          <div class="M_actionButton upvote">
-            <%= render partial: "upvote/button", locals: { likeable: comment, dislikeable: comment } %>
+          <p class="p5"><%= comment.text %></p>
+        </div>
+
+        <% if current_user.present? %>
+          <div class="W_interactive">
+            <div class="M_actionButton upvote">
+              <%= render partial: "tap/button", locals: { tapable: comment } %>
+            </div>
+            <div class="M_actionButton upvote">
+              <%= render partial: "upvote/button", locals: { likeable: comment, dislikeable: comment } %>
+            </div>
           </div>
-        </div>
-         <%= render partial: "comments/form",
-            locals: {
-              comment: Comment.new,
-              parent_comment_id: comment.id } %>
-        </div>
+        <% end %>
+          <%= render partial: "comments/form",
+              locals: {
+                comment: Comment.new,
+                parent_comment_id: comment.id } %>
+          </div>
       </div>
         
 

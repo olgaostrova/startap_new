@@ -10,12 +10,18 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <p style="color: red"><%= alert %></p>
-    <%= render "menubar" %>
-    <%= Rails.application.credentials.devise_jwt_secret_key %>
-    <%#= render "devise/shared/links" %>
-    <%= yield %>
+  <body class="app_body">
+    <%# <p style="color: red"><%= alert %>
+    <div class="S_mainContainer">
+      <%# <%= Rails.application.credentials.devise_jwt_secret_key %>
+      <%= render "menubar" %>
+      
+      <%#= render "devise/shared/links" %>
+      <%= yield %>
+
+      <%= render "sidebar" %>
+
+    </div>
     <%= render "footer" %>
   </body>
 </html>

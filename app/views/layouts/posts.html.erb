@@ -11,16 +11,17 @@
   </head>
 
   <body class="posts_body">
-    <%= render "menubar" %>
-     <p style="color: red"><%= alert %></p>
+      <%# <%= session.to_json %> 
+      <%# <%= cookies.to_json %> 
+      <p style="color: red"><%= alert %></p>
+    <div class="S_mainContainer">
 
-    <%= session.to_json %>
-    <%= cookies.to_json %>
+      <%= render "menubar" %>
 
+      <%= yield %>
 
-    <%= yield %>
-    
+      
+    </div>
     <%= render "footer" %>
-
   </body>
 </html>

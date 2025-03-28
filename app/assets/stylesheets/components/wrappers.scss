@@ -25,7 +25,12 @@ body {
     .W_infoName {
         display: flex;
         align-items: center;
-        gap: 16px;
+        gap: 10px;
+
+        .p4 {
+            color: var(--gray-6);
+            font-weight: bold;
+        }
     }
 
     .W_postTitleInfo {
@@ -65,7 +70,7 @@ body {
         gap: 8px;
         align-self: stretch;
         flex-wrap: wrap;
-        background-color: var(--white);
+        background-color: var(--gray-1);
         padding: 8px;
         border-radius: 8px;
     }
@@ -87,10 +92,9 @@ body {
 
     .M_userInfo {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
         align-items: flex-start;
-        gap: 8px;
+        align-self: stretch;
     }
 
     .W_choice {
@@ -115,4 +119,75 @@ body {
             width: 100%;
         }
     }
+
+    .W_infoContent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2px;
+        
+        * {
+            color: var(--gray-3)!important;
+        }
+    }
+
+    .W_postEditingContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .W_postingActions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .W_backImages {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        position: absolute;
+        z-index: -100;
+        opacity: 35%;
+        
+
+        * {
+            position: absolute;
+        }
+
+    }
+
+    .W_loginForms {
+        display: flex;
+        flex-direction: column;
+        padding-top: 96px;
+        gap: 32px;
+    }
+
+    .W_redirectLink {
+        display: flex;
+        gap: 4px;
+        justify-content: center;
+
+        p {
+            color: var(--white);
+        }
+
+        a {
+            color: var(--green);
+            text-decoration: underline;
+            width: 100%;
+            text-align: center;
+        }
+
+        > * {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
 }

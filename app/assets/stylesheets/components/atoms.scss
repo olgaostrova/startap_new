@@ -8,10 +8,17 @@ body {
         background-size: cover;
     }
 
+    .A_backButton {
+
+        a {
+            color: var(--gray-3);
+        }
+    }
+
     .A_avatar {
-        width: 48px;
-        height: 48px;
-        border-radius: 6.4px;
+        width: 32px;
+        height: 32px;
+        border-radius: 4px;
 
         &.big {
             width: 64px;
@@ -22,29 +29,29 @@ body {
 
     .A_buttonsContent {
         display: flex;
-        width: 48px;
-        height: 40px;
+        //width: 48px;
+        height: 32px;
         padding: 8px;
         justify-content: center;
         align-items: center;
-        gap: 8px;
-        border-radius: 9px;
+        border-radius: 8px;
+        color: var(--gray-5)!important;
 
         &.action:hover {
-            background-color: var(--grey);
+            background-color: var(--grey-3);
         }
 
         &.text {
             cursor: default;
+            color: var(--gray-5);
         }
-
                 
     }
 
     .A_iconPost {
         display: flex;
-        width: 24px;
-        height: 24px;
+        width: 20px;
+        height: 20px;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -53,82 +60,94 @@ body {
         border-radius: 4px;
     }
 
+    .A_hugeLogo {
+        width: 188px;
+    }
+
     .A_tag {
-        display: flex;
-        padding: 9px 20px 8px 20px;
+        display: inline-flex;
+        padding: 8px 16px;
         justify-content: center;
         align-items: center;
         gap: 8px;
+        color: var(--white);
         border-radius: 8px;
-        background: var(--background);
+        background: var(--gray-0);
 
-        &.choosen {
-            background: var(--black);
+
+        a {
+            color: var(--white);
         }
 
-        &.white {
-            background: var(--white);
-        }
-
-        &.opinion {
-            &:hover {
-                background-color: var(--yellow);
-            }
-        }
-
-        &.update {
-            &:hover {
-                background: var(--light-red);
-            }
-        }
-
-        &.advice {
-            &:hover {
-                background: var(--azure);
-            }
-        }
-
-        &.search {
-            &:hover {
-                background: var(--purple);
-            }
-        }
-
-        &.how-to {
-            &:hover {
-                background: var(--blue);
-            }
-        }
-
-        &.opinion {
-            &.selected {
-                background-color: var(--yellow);
-            }
-        }
         
-        &.update {
-            &.selected {
-                background: var(--light-red);
-            }
-        }
+
+        // &.choosen {
+        //     background: var(--black);
+        // }
+
+        // &.white {
+        //     background: var(--white);
+        // }
+
+        // &.opinion {
+        //     &:hover {
+        //         background-color: var(--yellow);
+        //     }
+        // }
+
+        // &.update {
+        //     &:hover {
+        //         background: var(--light-red);
+        //     }
+        // }
+
+        // &.advice {
+        //     &:hover {
+        //         background: var(--azure);
+        //     }
+        // }
+
+        // &.search {
+        //     &:hover {
+        //         background: var(--purple);
+        //     }
+        // }
+
+        // &.how-to {
+        //     &:hover {
+        //         background: var(--blue);
+        //     }
+        // }
+
+        // &.opinion {
+        //     &.selected {
+        //         background-color: var(--yellow);
+        //     }
+        // }
         
-        &.advice {
-            &.selected {
-                background: var(--azure);
-            }
-        }
+        // &.update {
+        //     &.selected {
+        //         background: var(--light-red);
+        //     }
+        // }
         
-        &.search {
-            &.selected {
-                background: var(--purple);
-            }
-        }
+        // &.advice {
+        //     &.selected {
+        //         background: var(--azure);
+        //     }
+        // }
         
-        &.how-to {
-            &.selected {
-                background: var(--blue);
-            }
-        }
+        // &.search {
+        //     &.selected {
+        //         background: var(--purple);
+        //     }
+        // }
+        
+        // &.how-to {
+        //     &.selected {
+        //         background: var(--blue);
+        //     }
+        // }
     }
 
     .A_date {
@@ -168,47 +187,136 @@ body {
         }
     }
 
-    .A_textField, .field {
+    // .A_textField, .field {
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: flex-start;
+    //     border-radius: 8px;
+    //     background-color: white;
+    //     padding: 4px 12px;
+    //     width: 100%;
+    //     font-family: "Neutral Face", sans-serif;
+    //     font-size: 12px;
+    //     margin-top: 8px;
+
+    //     label {
+    //         color: grey;
+    //         font-size: 12px;
+    //     }
+
+    //     &.text-area {
+    //         textarea {
+    //             border: 0px;
+    //             padding: 8px 0;
+    //             height: 240px;
+    //             width: -webkit-fill-available;
+    //         }
+    //     }
+    // }
+
+    .A_addButton, .actions {
+        display: flex;
+        width: 32px;
+        height: 32px;
+        padding: 24px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        aspect-ratio: 1/1;
+        border-radius: 8px;
+        background: var(--black);
+
+
+        * {
+            color: var(--green);
+        }
+    }
+
+    .A_hugeButton {
+        display: flex;
+        width: 324px;
+        height: 73px;
+        padding: 32px 24px;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        border-radius: 8px;
+    }
+
+    .A_startupDescription {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        gap: 8px;
+        align-self: stretch;
+        color: var(--white);
+    }
+
+    .A_textField {
+        display: flex;
+        padding: 16px;
+        align-self: stretch;
         border-radius: 8px;
-        background-color: white;
-        padding: 4px 12px;
-        width: 100%;
-        font-family: "Neutral Face", sans-serif;
-        font-size: 12px;
-        margin-top: 8px;
-
-        label {
-            color: grey;
-            font-size: 12px;
-        }
-
-        &.text-area {
-            textarea {
-                border: 0px;
-                padding: 8px 0;
-                height: 240px;
-                width: -webkit-fill-available;
+        background: var(--white);
+        flex-direction: column;
+        
+    
+        input[type="text"], textarea {
+            border: none;
+            outline: none;
+            font-size: 16px;
+            width: 100%;
+            padding-top: 8px;
+            color: (var(---black));
+            resize: vertical;
+            max-height: 300px;
+    
+            &::placeholder {
+                color: var(--gray-5);
             }
         }
-    }
 
-    .A_addButton, .actions {
-        margin-top: 16px;
-        text-align: center;
-        background: var(--gradient);
-        font-family: "Neutral Face", sans-serif;
-        font-size: 24px;
-        padding: 16px 16px;
-        border-radius: 100px;
-        color: var(--white);
-        width: 100%;
-        box-shadow: 0px 0px 20px 5px rgba(195, 161, 234, 0.20);
-
-        * {
-            color: var(--white);
+        label {
+            color: var(--gray-5);
+            font-family: "Neutral Face";
+            font-size: 12px;
         }
     }
+
+    .A_buttonStar {
+        background-image: url('buttonstar.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+        padding: 40px 64px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        position: relative;
+        text-align: center;
+        width: auto;
+        height: auto;
+        font-family: "Neutral Face";
+    }
+
+    /* Убираем дефолтные стили кнопки */
+    .A_buttonStar:focus {
+        outline: none;
+        /* Убирает обводку при фокусе */
+    }
+
+    .A_buttonStar:hover {
+        opacity: 0.8;
+        /* Слегка затемняем при наведении */
+    }
+
+    .A_imageleft {
+        left: 0px;
+    }
+
+    .A_imageright {
+        right: 0px;
+    }
 }
+
