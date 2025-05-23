@@ -163,8 +163,9 @@ body {
     .W_loginForms {
         display: flex;
         flex-direction: column;
-        padding-top: 96px;
+        padding: 96px 32px;
         gap: 32px;
+        max-width: 580px;
     }
 
     .W_redirectLink {

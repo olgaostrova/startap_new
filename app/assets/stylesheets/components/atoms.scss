@@ -1,7 +1,6 @@
 body {
     .A_imageCover {
-        width: 602px;
-        height: 338px;
+        width: 100%;
         justify-content: center;
         align-items: center;
         border-radius: 4px;
@@ -313,6 +312,7 @@ body {
 
     .A_imageleft {
         left: 0px;
+        height: 100vh;
     }
 
     .A_imageright {

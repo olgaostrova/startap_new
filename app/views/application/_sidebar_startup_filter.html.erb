@@ -1,10 +1,15 @@
   <div class="S_sideBar">
+    <div class="C_menuLog">
+        <% if user_signed_in? %>
+        <p class="p6"><%= link_to current_user.email, edit_user_registration_path %></p>
+        <p class="p6"><%= link_to "Выйти", destroy_user_session_path, data: { "turbo-method": :delete } %></p>
+        <% else %>
+        <p class="p6"><%= link_to "Войти", new_user_session_path %></p>
+        <p class="p6"><%= link_to "Зарегистрироваться", new_user_registration_path %></p>
+        <% end %>
+  </div>
 
     <div class="O_filter">
-        <% if current_user.present? %>
-            <p class="p6 A_tag white"><%= link_to "Мои стартапы", my_startups_path %></p>
-        <% end %>
-        <p class="p6 A_tag white"><%= link_to "Все стартапы", startups_path %></p>
         <div class="W_favTags">
             <div class="W_categories">
                 <% Startup.tag_counts_on(:tags).each do |tag| %>

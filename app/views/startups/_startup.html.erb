@@ -4,7 +4,7 @@
     <div class="O_userInfo">
     <%= image_tag startup.avatar.url, class: 'A_avatar big' %>
       <p class="p4"><%= link_to startup.name, startup_path(startup) %></p>
-      <p class="p6 white"><%= startup.description %></p>
+      <p class="p6 white"><%= startup.description.html_safe %></p>
     </div>
   </div>
   
@@ -14,6 +14,6 @@
     <% end %>
   </div>
 
-  <p class="p5 A_startupDescription"><%= startup.about %></p>
+  <p class="p5 A_startupDescription"><%= startup.about.html_safe %></p>
 
 </div>

@@ -178,6 +178,10 @@ body {
             line-height: 87%;
             font-weight: bold;
         }
+
+        @media screen and (max-width: 800px) {
+            font-size: 32px;
+        }
     }
 
     h3 {
