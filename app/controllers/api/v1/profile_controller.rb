@@ -7,3 +7,18 @@ class Api::V1::ProfileController < ApplicationController
   end
 
 end
+
+private
+
+def encrypt_payload
+  payload = @user.as_json(only: [:email, :jti])
+  token = JWT.encode(payload, Rails.application.credentials.devise_jwt_secret_key!, 'HS256')
+end
+
+def decrypt_payload
+  jwt = request.headers["Authorization"]
+  token = JWT.decode(jwt, Rails.application.credentials.devise_jwt_secret_key!, true, { algorithm: 'HS256' })
+end
+
+
+end
