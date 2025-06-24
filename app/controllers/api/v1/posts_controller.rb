@@ -56,7 +56,7 @@ class Api::V1::PostsController < ApplicationController
   private
 
     def post_params
-      params.require(:post).permit(:title, :text, :likes, :startup_id, :public, :category_list, :secret, :cover, tag_list: [])
+      params.require(:post).permit(:title, :text, :likes, :startup_id, :user_id, :public, :category_list, :secret, :cover, tag_list: [])
     end
 
     def encrypt_payload
