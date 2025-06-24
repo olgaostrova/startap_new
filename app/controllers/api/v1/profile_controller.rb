@@ -20,5 +20,3 @@ def decrypt_payload
   token = JWT.decode(jwt, Rails.application.credentials.devise_jwt_secret_key!, true, { algorithm: 'HS256' })
 end
 
-
-end
