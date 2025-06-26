@@ -4,13 +4,11 @@ class PostsController < ApplicationController
 
   def index
     if current_user && current_user.admin?
-      @posts = Post.all.limit(30)
-    else 
-      @posts = Post.where(public: true).limit(30)
+      @posts = Post.all.sort_by { |post| -post.like_dislike_difference }
+    else
+      @posts = Post.where(public: true).sort_by { |post| -post.like_dislike_difference }
     end
-
-    #@posts = Post.paginate(page: params[:page], per_page: 30)
-
+    # @posts = Post.paginate(page: params[:page], per_page: 30) # Отключаем пагинацию для простоты
   end
 
   def edit

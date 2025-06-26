@@ -3,7 +3,7 @@ class Api::V1::PostsController < ApplicationController
 
   def index
 #    if current_user && current_user.admin?
-      @posts = Post.all
+      @posts = Post.all.sort_by { |post| -post.likes.size }
       #render json: @posts.as_json
 #    elsif current_user
 #      @posts = Post.where(public: true)

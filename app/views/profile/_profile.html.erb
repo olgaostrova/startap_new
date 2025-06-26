@@ -1,39 +1,23 @@
-<div id="<%= dom_id profile %>">
-  <p>
-    <strong>User:</strong>
-    <%= profile.user_id %>
-    <%= profile.user.email %>
-  </p>
-  <% if profile.avatar%> 
-    <p>
-      <strong>Avatar:</strong>
-      <%= profile.avatar %>
-    </p>
-  <% end %>
-
-  <p>
-    <strong>Trust points:</strong>
-    <%= profile.trust_points %>
-  </p>
-
-  <p>
-    <strong>Name:</strong>
-    <%= profile.name %>
-  </p>
-
-  <p>
-    <strong>Surname:</strong>
-    <%= profile.surname %>
-  </p>
-
-  <p>
-    <strong>Descrtiption:</strong>
+<div class="O_profile">
+  <div class="M_stract">
+      <div class="W_infoName">
+          <% if  profile.user.present? %>
+              <%= image_tag profile.avatar.url, class: 'A_avatar' %>
+          <% end %>
+          <div class="M_startapDesk">
+              <p class="p4">                    
+                      <%= "#{profile.name} #{profile.surname}" %>
+          </div>
+      </div>
+  </div>
+  <p class="p7">
     <%= profile.description %>
   </p>
 
-  <p>
-    <strong>Birthday:</strong>
-    <%= profile.birthday %>
-  </p>
+<% if current_user && current_user == @profile.user %>
+  <div class="M_userChanges">
+    <p class="p5 white"><%= link_to "Редактировать мой профиль", edit_user_registration_path %></p>
 
+  </div>
+<% end %>
 </div>

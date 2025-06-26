@@ -72,28 +72,39 @@
 .S_posts {
     display: flex;
     gap: 32px;
+    width: 100%;
 }
 
 .S_postsPage {
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.S_startupsPage {
-    padding: 24px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
     gap: 24px;
     width: 100%;
+}
+
+.S_startupsPage {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+
+}
+
+.S_profilePage {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
 }
 
 .S_startups {
     display: flex;
     gap: 32px;
     justify-content: center;
-    width: 100%;
 }
 
 .S_createPost {
@@ -107,6 +118,29 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    width: 100%;
+}
+
+.S_createStartup {
+    display: flex;
+    padding: 96px;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+    flex: 1 0 0;
+    background: var(--back2);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+
+    @media screen and (max-width: 824px) {
+            padding: 96px 32px;
+    }
+
+    @media screen and (max-width: 480px) {
+        padding: 96px 16px;
+    }
 }
 
 .S_footer {
@@ -152,7 +186,10 @@
 .S_postContainer {
     display: flex;
     flex-direction: column;
-    padding: 32px 64px;
+    align-items: center;
+    gap: 16px;
+    flex: 1 0 0;
+    padding: 16px;
 }
 
 .S_loginContainer {
@@ -168,7 +205,44 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 96px 32px;
+    padding: 16px;
     color: var(--white);
     gap: 32px;
+}
+
+.S_MenuBarMobileClosed {
+    background-color: var(--black);
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--white);
+    padding: 0 16px;
+    display: none;
+
+    @media screen and (max-width: 823px) {
+            display: flex;
+    }
+}
+
+.S_MenuBarMobile {
+    position: fixed;
+    right: 16px;
+    top: 16px;
+    background-color: var(--black);
+    color: var(--white);
+    display: none;
+    opacity: 0;
+    transition: 0.1s;
+    border-radius: 16px;
+    z-index: 100;
+
+    &:hover {
+        display: block;
+        opacity: 1;
+        transition: 0.1s;
+    }
+
 }

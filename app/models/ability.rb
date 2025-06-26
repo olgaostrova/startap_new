@@ -10,6 +10,7 @@ class Ability
     can :by_tag, Startup, public: true
     can :read, Startup, public: true
     can :create, Subscription
+    can :read, Profile
 
     return unless user.present?  # additional permissions for logged in users (they can read their own posts)
     can :manage, Post, user: user

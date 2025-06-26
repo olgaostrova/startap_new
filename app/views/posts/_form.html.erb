@@ -23,19 +23,20 @@ end %>
 
  
     <div class="O_createPost">
+      <p class="p3">Новый пост</p>
       <div class="M_textField">
         <div class="C_textFieldBig">
           <div class="W_choice long">
-            <p class="p3">Стартап</p>
+            <p class="p6">Стартап</p>
             <%= form.collection_select :startup_id, current_user.startups.order(:name), :id, :name, include_blank: true %>
           </div>
           <div class="C_inputField">
             <div class="W_choice short">
-              <p class="p3">Категория</p>
+              <p class="p6">Категория</p>
               <%= form.select :category_list, valid_categories %>
             </div>
             <div class="W_choice short">
-              <p class="p3">Теги</p>
+              <p class="p6">Теги</p>
                 <%= form.select :tag_list, valid_tags, {}, multiple: true %>
             </div>
           </div>

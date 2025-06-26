@@ -2,6 +2,7 @@
 <html lang="ru">
   <head>
     <%= display_meta_tags site: "Startap", reverse: true %>
+    <%= favicon_link_tag 'icon.svg' %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,6 +13,9 @@
 
   <body class="app_body">
     <%# <p style="color: red"><%= alert %>
+
+    <%= render "mobile_menubar" %>
+
     <div class="S_mainContainer">
       <%# <%= Rails.application.credentials.devise_jwt_secret_key %>
       <%= render "menubar" %>

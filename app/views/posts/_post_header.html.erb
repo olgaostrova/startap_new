@@ -7,7 +7,11 @@
             <div class="M_startapDesk">
                 <p class="p4"><%= post.startup.name %></p>
                 <div class="W_infoContent">
-                    <p class="p5 A_author"> <%= "#{post.user.profile.name} #{post.user.profile.surname} •" %> </p>
+                    <p class="p">
+                    <%= link_to user_profile_path(post.user), class: "A_author p5" do %>
+                        <%= "#{post.user.profile.name} #{post.user.profile.surname} • " %>
+                    <% end %>
+                    </p>
                     <p class="p6 A_date"><%= post.created_at.strftime('%H:%M') %></p>
                 </div>
             </div>
@@ -20,16 +24,15 @@
                 <%= image_tag post.user.profile.avatar.url, class: 'A_avatar' %>
             <% end %>
             <div class="M_startapDesk">
-                <p class="p4"><%= "#{post.user.profile.name} #{post.user.profile.surname}" %></p>
+                <p class="p4">                    
+                    <%= link_to user_profile_path(post.user), class: "A_author" do %>
+                        <%= "#{post.user.profile.name} #{post.user.profile.surname}" %>
+                    <% end %></p>
                 <div class="W_infoContent">
                     <p class="p8 A_author"> Автор поста •</p>
                     <p class="p8 A_date"><%= post.created_at.strftime('%H:%M') %></p>
                 </div>
             </div>
-        </div>
-
-        <div>   
-
         </div>
     </div>
 <% end %>

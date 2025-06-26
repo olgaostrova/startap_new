@@ -1,3 +1,5 @@
+
+
 <div class="S_MenuBar">
   <%= link_to(index_url) do %>
     <%= image_tag "huge_logo.svg", class: "A_hugeLogo" %> 
@@ -10,13 +12,8 @@
     <%# else %>
     <p class="p6"><%= link_to "Форум", index_url %></p>
     <p class="p6"><%= link_to "Песочница", startups_url %></p>
-    <% if user_signed_in? && current_user.admin?%>
-      <p class="p6"><%= link_to "Подписки", admin_subscriptions_url %></p>
-    <% end %>
-    <% if user_signed_in? %>
-      <p class="p6"><%= link_to current_user.email, edit_user_registration_path %></p>
-      <p class="p6"><%= link_to "Выйти", destroy_user_session_path, data: { "turbo-method": :delete } %></p>
-    <% end %>
+
+
   </div>
 
 
@@ -28,6 +25,11 @@
     <%= link_to(new_post_path) do %>
       <button class="A_newPost">
         <%= image_tag "new-post-button.svg" %>
+      </button>
+    <% end %>
+    <%= link_to(new_startup_path) do %>
+      <button class="A_newPost">
+        <%= image_tag "new-startup-button.svg" %>
       </button>
     <% end %>
   <% end %>

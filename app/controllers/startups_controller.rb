@@ -85,7 +85,7 @@ class StartupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def startup_params
-      params.require(:startup).permit(:name, :description, :user_id, tag_list: [])
+      params.require(:startup).permit(:name, :description, :about, :avatar, :user_id, tag_list: [])
     end
 
     #  def index

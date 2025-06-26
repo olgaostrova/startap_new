@@ -1,6 +1,7 @@
 body {
     .O_post {
         display: flex;
+        width: 100%;
         max-width: 630px;
         padding: 14px;
         flex-direction: column;
@@ -18,6 +19,40 @@ body {
         }
 
         > p {
+            color: var(--white);
+        }
+
+        .post_content {
+            color: var(--gray-6);
+        }
+
+        .post_title {
+            a {
+                color: var(--gray-6);
+            }
+        }
+    }
+
+    .O_profile {
+        display: flex;
+        padding: 14px;
+        max-width: 630px;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+        border-radius: 8px;
+        background: var(--gray-1);
+
+        h2 {
+            a {
+                font-family: 'OffBit';
+                color: var(--gray-6);
+            }
+        }
+
+        >p {
             color: var(--white);
         }
 
@@ -63,7 +98,7 @@ body {
         justify-content: center;
         align-items: center;
         gap: 20px;
-        align-self: stretch;
+        width: 100%;
         border-radius: 8px;
         background: var(--gray-0, #000);
         max-width: 630px;
@@ -97,12 +132,15 @@ body {
     .O_userInfo {
         display: flex;
         align-items: flex-start;
+        flex-direction: row;
         gap: 16px;
 
         a {
             color: white;
         }
     }
+
+        
 
     .O_commentField {
         display: flex;

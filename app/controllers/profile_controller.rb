@@ -6,7 +6,12 @@ class ProfileController < ApplicationController
 
   # GET /profile/1 or /profile/1.json
   def show
-    @profile = current_user.profile
+    @user = User.find(params[:id])
+    @profile = @user.profile
+    @posts = @user.posts.order(created_at: :desc)
+    @startups = @user.startups.order(created_at: :desc)
+  # rescue ActiveRecord::RecordNotFound
+  #   redirect_to root_path, alert: "Пользователь не найден"
   end
 
   # GET /profile/new
@@ -16,6 +21,14 @@ class ProfileController < ApplicationController
 
   # GET /profile/1/edit
   def edit
+  end
+
+  def my
+    @user = current_user
+    @profile = current_user.profile
+    @posts = current_user.posts.order(created_at: :desc)
+    @startups = current_user.startups.order(created_at: :desc)
+    render :show
   end
 
   # POST /profile or /profile.json
@@ -65,5 +78,9 @@ class ProfileController < ApplicationController
     # Only allow a list of trusted parameters through.
     def profile_params
       params.require(:profile).permit(:user_id, :avatar, :trust_points, :name, :surname, :description, :birthday)
+    end
+
+    def set_user
+      @user = User.find(params[:id])  # Исправлено params[iid] на params[:id]
     end
 end

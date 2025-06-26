@@ -25,8 +25,19 @@ class Post < ApplicationRecord
 
   acts_as_taggable_on :categories
   mount_uploader :cover, PostCoverUploader
-  default_scope { order(created_at: "DESC") }
+  # default_scope { order(created_at: "DESC") }
 
+  def likes_count
+    likes.count
+  end
+
+  def dislikes_count
+    dislikes.count
+  end
+
+  def like_dislike_difference
+    likes_count - dislikes_count
+  end
 
   #validates :name, presence: true
 

@@ -30,7 +30,6 @@
                </div>
 
                <% if current_user %>
-               <p style="color: green" class="p2"><%= notice %></p>
 
                <%= render "comments/form", post: @post, comment: Comment.new %>
 

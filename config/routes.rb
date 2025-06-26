@@ -24,9 +24,15 @@ Rails.application.routes.draw do
   devise_for :users
 
 
-  resources :profile, only: [:show, :edit, :update, :destroy] 
+  # Profile routes
+  resource :profile, only: [:show, :edit, :update, :destroy], controller: 'profile' do
+    collection do
+      get 'my', to: 'profile#my'  # /profile/my
+    end
+  end
 
-  get 'profile', to: "profile#show"
+  # Additional profile route
+  get 'profiles/:id', to: 'profile#show', as: :user_profile
 
   resources :posts, only: [:index, :show, :edit, :new, :destroy, :create, :by_tag] do
     collection do

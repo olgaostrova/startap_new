@@ -1,19 +1,25 @@
 <div id="<%= dom_id startup %>" class="O_startup">
-   
   <div class="O_profileInfo big desktop">
     <div class="O_userInfo">
-    <%= image_tag startup.avatar.url, class: 'A_avatar big' %>
-      <p class="p4"><%= link_to startup.name, startup_path(startup) %></p>
-      <p class="p6 white"><%= startup.description.html_safe %></p>
+      
+      <% if startup.avatar.url  %>
+        <%= image_tag startup.avatar.url, class: 'A_avatar big' %>
+      <% end %>
+      <div class="M_userInfoHeader">
+        <p class="p4"><%= link_to startup.name, startup_path(startup) %></p>
+        <% if startup.description  %>
+          <p class="p6 white"><%= startup.description.html_safe %></p>
+        <% end %>
+      </div>  
     </div>
   </div>
+   <% if startup.about  %>
+    <p class="p5 A_startupDescription"><%= startup.about.html_safe %></p>
+  <% end %>
   
   <div class="W_categories">
     <% startup.tags.each do |tag| %>
       <p class="p6 A_tag"><%= link_to tag.name, tagged_posts_path(tag.name) %></p>
     <% end %>
   </div>
-
-  <p class="p5 A_startupDescription"><%= startup.about.html_safe %></p>
-
 </div>

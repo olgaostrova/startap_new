@@ -3,6 +3,7 @@
 <%# <p style="color: green"><%= notice %>
 
   <%= render @startup %>
+  <div id="C_posts">
 
   <div class="C_postManage">
 
@@ -13,13 +14,15 @@
 
        <p class="p5"><%= link_to "Вернуться к стартапам", startups_url %></p>
 
+
   </div>
 
-    <div id="C_posts">
+  <p class="p4 white">Посты</p>
+
 
         <%= render collection: @posts, partial: "posts/post", locals: { startup: @startup }  %>
     </div>
   </div>
-</div">
-
 <%= render "sidebar" %>
+</div>
+

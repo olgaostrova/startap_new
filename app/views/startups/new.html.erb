@@ -1,11 +1,13 @@
-<h1>New startup</h1>
+<div class="S_createStartup">
+<div style="width: 100%">
+  <%= render "form", startup: @startup %>
+</div>
 
-<%= render "form", startup: @startup %>
 
-<br>
+  <div class="p5">
+    <%= link_to "← Вернуться к стартапам", startups_path %>
+  </div>
 
-<div>
-  <%= link_to "Back to startups", startups_path %>
 </div>
 
 <%= render "sidebar" %>

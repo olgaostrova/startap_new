@@ -143,6 +143,16 @@ body {
         align-items: center;
         justify-content: space-between;
         width: 100%;
+
+        @media screen and (max-width: 620px) {
+             flex-direction: column;
+            justify-content: center;
+            gap: 32px;
+
+            .A_buttonStar {
+                width: 100%;
+            }
+        }   
     }
 
     .W_backImages {
@@ -166,6 +176,7 @@ body {
         padding: 96px 32px;
         gap: 32px;
         max-width: 580px;
+        width: 100%;
     }
 
     .W_redirectLink {

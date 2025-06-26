@@ -15,6 +15,8 @@ body {
 
         &.like {
             background-color: var(--green);
+            color: var(--black);
+            
         }
         &.dislike {
             background-color: var(--light-red);
@@ -37,7 +39,6 @@ body {
     .M_commentForm {
         background-color: var(--background);
         width: 100%;
-        min-width: 260px;
         min-height: 40px;
         max-width: -webkit-fill-available;
         border-radius: 8px;
@@ -134,5 +135,26 @@ body {
             font-size: 15px;
             color: var(--black);
         }
+    }
+
+    .M_userChanges {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        align-items: center;
+    }
+
+    .M_userInfoHeader {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+
+    .M_menuOpen:hover ~ .S_MenuBarMobile {
+        display: block;   
+        opacity: 1;
+        transition: 0.1s;
+
     }
 }

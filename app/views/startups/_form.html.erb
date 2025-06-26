@@ -1,3 +1,9 @@
+<% if current_user && current_user.admin?
+  startup_model = [:admin, startup]
+elsif can? :edit, post
+  startup_model = startup
+end %>
+
 <%= form_with(model: startup) do |form| %>
   <% if startup.errors.any? %>
     <div style="color: red">
@@ -11,21 +17,45 @@
     </div>
   <% end %>
 
-  <%= form.select :tag_list, valid_tags, {}, multiple: true %>
+  <!-- Скрытое поле для startup_id -->
+  <%#= form.hidden_field :startup_id, value: @startup.id %>
 
+  <div class="O_createPost">
+    <p class="p3">Новый стартап</p>
+    <div class="M_textField">
+      <div class="C_textFieldBig">
+        <div class="M_textField">
+          <div class="C_textField">
+            <div class="A_textField">
+              <%= form.label :Название, style: "display: block" %>
+              <p class="p5"><%= form.text_field :name %></p>
+            </div>
+            <div class="A_textField text-area">
+              <%= form.label :Короткое_описание, style: "display: block" %>
+              <p class="p5"><%= form.text_area :description %></p>
+            </div>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
+            <div class="A_textField text-area">
+              <%= form.label :Длинное_описание, style: "display: block" %>
+              <p class="p5"><%= form.text_area :about %></p>
+            </div>
+          </div>
+        </div>
+        <div class="W_choice long">
+          <p class="p6">Теги</p>
+          <%= form.select :tag_list, valid_tags, {}, multiple: true %>
+        </div>
+      </div>
+    </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
-  </div>
-
-
-  <div>
-     <button class="actions"><%= form.submit %></button>
+    <div class="W_postingActions">
+      <div class="upload">
+        <%= form.label :Аватар, style: "display: block", class: "p4" %>
+        <%= form.file_field :avatar %>
+      </div>
+      <%= form.button tag: "button", class: "A_buttonStar", type: "submit" do %>
+        Опубликовать
+      <% end %>
+    </div>
   </div>
 <% end %>

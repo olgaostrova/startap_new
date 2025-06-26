@@ -1,8 +1,22 @@
-<p style="color: green"><%= notice %></p>
+<div class="S_profilePage">
 
-<%= render partial: 'profile', locals: { profile: @profile } %> 
 
-<div>
-  <%= link_to "Edit this profile", edit_profile_path(@profile) %> |
-  <%= button_to "Destroy this profile", @profile, method: :delete %>
+  <%= render partial: 'profile', locals: { profile: @profile } %> 
+
+  <p class="p4 white">Стартапы</p>
+
+  <div id="C_posts">
+      <% if @startups.any? %>
+        <%= render partial: "startups/startup", collection: @startups, as: :startup %>
+       <% end %>
+  </div>
+
+  <p class="p4 white">Посты</p>
+
+    <div id="C_posts">
+      <% if @posts.any? %>
+        <%= render partial: "posts/post", collection: @posts, as: :post %>
+      <% end %>
+  </div>
+
 </div>
